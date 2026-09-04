@@ -53,7 +53,40 @@
         <p class="quiz-score-msg" id="quizScoreMsg"></p>
         <div class="quiz-result-actions">
           <button id="quizRetryBtn" class="ctrl-btn">🔁 重新測驗</button>
-          <button id="quizReplayBtn" class="ctrl-btn big">🎬 重新聽影片</button>
+          <button id="goToSpeakingBtn" class="ctrl-btn big">🗣️ 練習口說</button>
+          <button id="quizReplayBtn" class="ctrl-btn">🎬 重新聽影片</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="speakingSection" class="speaking-section" hidden>
+      <h2 class="quiz-title">🗣️ 口說練習時間!</h2>
+      <p class="quiz-progress" id="speakingProgress"></p>
+      <p class="speaking-sentence" id="speakingSentence"></p>
+      <button id="playModelBtn" class="ctrl-btn">🔊 聽範例發音</button>
+
+      <div class="speaking-record-row">
+        <button id="recordBtn" class="ctrl-btn big">🎙️ 開始錄音</button>
+      </div>
+
+      <div id="playbackArea" class="playback-area" hidden>
+        <p class="playback-label">🎧 聽聽你自己的錄音:</p>
+        <audio id="recordedAudio" controls></audio>
+        <div>
+          <button id="reRecordBtn" class="ctrl-btn">🔁 重新錄音</button>
+        </div>
+      </div>
+
+      <p class="speaking-status" id="speakingStatus"></p>
+
+      <button id="speakingNextBtn" class="ctrl-btn big" hidden>下一句 ➡️</button>
+
+      <div id="speakingResult" class="quiz-result" hidden>
+        <p class="quiz-score">🎉 口說練習完成!</p>
+        <p class="quiz-score-msg">你好棒,都練習完了!</p>
+        <div class="quiz-result-actions">
+          <button id="speakingRetryBtn" class="ctrl-btn">🔁 重新練習</button>
+          <button id="speakingReplayBtn" class="ctrl-btn big">🎬 重新聽影片</button>
         </div>
       </div>
     </div>

@@ -252,3 +252,61 @@ input[type="range"] {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.speaking-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px dashed #ffd166;
+  text-align: center;
+}
+
+.speaking-sentence {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.speaking-record-row {
+  margin: 16px 0;
+}
+
+.ctrl-btn.recording {
+  background: #ff5252;
+  color: #fff;
+  box-shadow: 0 4px 0 #c62828;
+  animation: recording-pulse 1s infinite;
+}
+
+@keyframes recording-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.playback-area {
+  margin: 16px 0;
+}
+
+.playback-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+}
+
+.playback-area audio {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.speaking-status {
+  min-height: 1.4em;
+  color: #888;
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
