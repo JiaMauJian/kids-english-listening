@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+  background: linear-gradient(135deg, #ffe29f 0%, #ffa9a9 50%, #a0d8ff 100%);
+  padding: 20px;
+}
+
+.container {
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 32px 28px 40px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+  color: #ff6f61;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Hide the YouTube video visually but keep it "on screen" so playback
+   isn't throttled by the browser like display:none can cause. */
+#yt-player-wrapper {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  left: -9999px;
+  top: -9999px;
+}
+
+.status {
+  color: #888;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+  margin-bottom: 16px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.ctrl-btn {
+  border: none;
+  border-radius: 16px;
+  background: #fff3e0;
+  color: #444;
+  padding: 14px 6px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #f0c98a;
+  transition: transform 0.05s ease;
+}
+
+.ctrl-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #f0c98a;
+}
+
+.ctrl-btn.big {
+  background: #ffd166;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 0 #d9a832;
+}
+
+.ctrl-btn.big:active {
+  box-shadow: 0 1px 0 #d9a832;
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-variant-numeric: tabular-nums;
+  color: #555;
+}
+
+.progress-row input[type="range"] {
+  flex: 1;
+}
+
+.speed-row,
+.volume-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.row-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
+
+.speed-btn {
+  border: 2px solid #a0d8ff;
+  background: #fff;
+  color: #3a7fb5;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.speed-btn.active {
+  background: #a0d8ff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.volume-row input[type="range"] {
+  width: 140px;
+}
+
+input[type="range"] {
+  accent-color: #ff6f61;
+}
