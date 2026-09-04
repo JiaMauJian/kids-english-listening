@@ -39,6 +39,24 @@
       <span class="row-label">🔊 音量</span>
       <input type="range" id="volumeSlider" min="0" max="100" value="80">
     </div>
+
+    <div id="quizSection" class="quiz-section" hidden>
+      <h2 class="quiz-title">🎉 小測驗時間!</h2>
+      <p class="quiz-progress" id="quizProgress"></p>
+      <p class="quiz-question" id="quizQuestion"></p>
+      <div class="quiz-options" id="quizOptions"></div>
+      <p class="quiz-feedback" id="quizFeedback"></p>
+      <button id="quizNextBtn" class="ctrl-btn big" hidden>下一題 ➡️</button>
+
+      <div id="quizResult" class="quiz-result" hidden>
+        <p class="quiz-score" id="quizScore"></p>
+        <p class="quiz-score-msg" id="quizScoreMsg"></p>
+        <div class="quiz-result-actions">
+          <button id="quizRetryBtn" class="ctrl-btn">🔁 重新測驗</button>
+          <button id="quizReplayBtn" class="ctrl-btn big">🎬 重新聽影片</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 <script src="https://www.youtube.com/iframe_api"></script>

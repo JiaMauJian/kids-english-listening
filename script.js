@@ -1,8 +1,39 @@
 const VIDEO_ID = "gOMypAhVaXE";
 
+const QUIZ_QUESTIONS = [
+  {
+    question: "Where has the speaker traveled to many times (6-7 times)?",
+    options: ["Hawaii", "Italy", "Portugal"],
+    answer: 0,
+  },
+  {
+    question: "What happened to the speaker in Madrid?",
+    options: ["She lost her passport", "She was bitten by bedbugs", "She missed her flight"],
+    answer: 1,
+  },
+  {
+    question: "What does the speaker prefer more than the beach?",
+    options: ["Shopping malls", "Big cities", "The countryside, forests, and mountains"],
+    answer: 2,
+  },
+  {
+    question: "What does the speaker prefer over hotels and hostels?",
+    options: ["Camping", "Airbnbs", "Cruise ships"],
+    answer: 1,
+  },
+  {
+    question: "What does the speaker say is the worst part about traveling?",
+    options: ["The food", "The flight", "The weather"],
+    answer: 1,
+  },
+];
+
 let player;
 let isSeeking = false;
 let progressTimer = null;
+let quizIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
 
 const statusEl = document.getElementById("status");
 const playPauseBtn = document.getElementById("playPauseBtn");
@@ -14,6 +45,18 @@ const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
 const volumeSlider = document.getElementById("volumeSlider");
 const speedButtons = document.querySelectorAll(".speed-btn");
+
+const quizSection = document.getElementById("quizSection");
+const quizProgress = document.getElementById("quizProgress");
+const quizQuestionEl = document.getElementById("quizQuestion");
+const quizOptionsEl = document.getElementById("quizOptions");
+const quizFeedbackEl = document.getElementById("quizFeedback");
+const quizNextBtn = document.getElementById("quizNextBtn");
+const quizResultEl = document.getElementById("quizResult");
+const quizScoreEl = document.getElementById("quizScore");
+const quizScoreMsgEl = document.getElementById("quizScoreMsg");
+const quizRetryBtn = document.getElementById("quizRetryBtn");
+const quizReplayBtn = document.getElementById("quizReplayBtn");
 
 function formatTime(seconds) {
   seconds = Math.max(0, Math.floor(seconds || 0));
@@ -67,14 +110,101 @@ function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.PLAYING) {
     playPauseBtn.innerHTML = "⏸️<br>暫停";
     statusEl.textContent = "正在播放...仔細聽喔！";
+    quizSection.hidden = true;
   } else if (event.data === YT.PlayerState.PAUSED) {
     playPauseBtn.innerHTML = "▶️<br>播放";
     statusEl.textContent = "已暫停";
   } else if (event.data === YT.PlayerState.ENDED) {
     playPauseBtn.innerHTML = "▶️<br>播放";
-    statusEl.textContent = "聽完了！要不要再聽一次？";
+    statusEl.textContent = "聽完了！來做個小測驗吧 📝";
+    startQuiz();
   }
 }
+
+function startQuiz() {
+  quizIndex = 0;
+  quizScore = 0;
+  quizResultEl.hidden = true;
+  quizSection.hidden = false;
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  quizAnswered = false;
+  quizFeedbackEl.textContent = "";
+  quizFeedbackEl.className = "quiz-feedback";
+  quizNextBtn.hidden = true;
+
+  const q = QUIZ_QUESTIONS[quizIndex];
+  quizProgress.textContent = `第 ${quizIndex + 1} / ${QUIZ_QUESTIONS.length} 題`;
+  quizQuestionEl.textContent = q.question;
+  quizOptionsEl.innerHTML = "";
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.className = "quiz-option-btn";
+    btn.textContent = opt;
+    btn.addEventListener("click", () => handleQuizAnswer(i));
+    quizOptionsEl.appendChild(btn);
+  });
+}
+
+function handleQuizAnswer(selectedIndex) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+
+  const q = QUIZ_QUESTIONS[quizIndex];
+  const isCorrect = selectedIndex === q.answer;
+  if (isCorrect) quizScore++;
+
+  const optionButtons = quizOptionsEl.querySelectorAll(".quiz-option-btn");
+  optionButtons.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.answer) btn.classList.add("correct");
+    else if (i === selectedIndex) btn.classList.add("wrong");
+  });
+
+  quizFeedbackEl.textContent = isCorrect ? "✅ 答對了！太棒了！" : "❌ 答錯囉，正確答案是綠色的選項";
+  quizFeedbackEl.className = "quiz-feedback " + (isCorrect ? "correct-text" : "wrong-text");
+  quizNextBtn.hidden = false;
+  quizNextBtn.textContent = quizIndex < QUIZ_QUESTIONS.length - 1 ? "下一題 ➡️" : "看結果 🏆";
+}
+
+function showQuizResult() {
+  quizProgress.textContent = "";
+  quizQuestionEl.textContent = "";
+  quizOptionsEl.innerHTML = "";
+  quizFeedbackEl.textContent = "";
+  quizNextBtn.hidden = true;
+  quizResultEl.hidden = false;
+
+  quizScoreEl.textContent = `你答對了 ${quizScore} / ${QUIZ_QUESTIONS.length} 題`;
+  let msg;
+  if (quizScore === QUIZ_QUESTIONS.length) {
+    msg = "🌟🌟🌟 全部答對！你聽得好仔細！";
+  } else if (quizScore >= Math.ceil(QUIZ_QUESTIONS.length / 2)) {
+    msg = "👍 很不錯喔！再聽一次會更棒！";
+  } else {
+    msg = "💪 再聽一次，你可以答得更好！";
+  }
+  quizScoreMsgEl.textContent = msg;
+}
+
+quizNextBtn.addEventListener("click", () => {
+  quizIndex++;
+  if (quizIndex < QUIZ_QUESTIONS.length) {
+    renderQuizQuestion();
+  } else {
+    showQuizResult();
+  }
+});
+
+quizRetryBtn.addEventListener("click", startQuiz);
+
+quizReplayBtn.addEventListener("click", () => {
+  quizSection.hidden = true;
+  player.seekTo(0, true);
+  player.playVideo();
+});
 
 function startProgressTimer() {
   if (progressTimer) return;
