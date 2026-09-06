@@ -116,6 +116,7 @@ const backHomeBtn = document.getElementById("backHomeBtn");
 
 const reviewBanner = document.getElementById("reviewBanner");
 const reviewTableBody = document.getElementById("reviewTableBody");
+const homeBtn = document.getElementById("homeBtn");
 
 const speakingSection = document.getElementById("speakingSection");
 const speakingProgress = document.getElementById("speakingProgress");
@@ -438,11 +439,22 @@ quizReplayBtn.addEventListener("click", () => {
   player.playVideo();
 });
 
-backHomeBtn.addEventListener("click", () => {
+// Always-available "回首頁" shortcut - works no matter what's currently on
+// screen (video playing, mid-quiz, or speaking practice), so a kid can jump
+// back to the lesson list from anywhere.
+function goHome() {
+  if (player && player.pauseVideo) player.pauseVideo();
+  if ("speechSynthesis" in window) speechSynthesis.cancel();
+  stopMicStream();
+  isRecording = false;
   quizSection.hidden = true;
+  speakingSection.hidden = true;
   renderReviewBanner();
   reviewBanner.hidden = false;
-});
+}
+
+backHomeBtn.addEventListener("click", goHome);
+homeBtn.addEventListener("click", goHome);
 
 goToSpeakingBtn.addEventListener("click", startSpeakingPractice);
 
