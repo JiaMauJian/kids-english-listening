@@ -72,7 +72,13 @@ const LESSONS = [
 // the next pending checkpoint with today's date (at most once per calendar
 // day, so mashing "retry" can't skip ahead); a checkpoint whose due date
 // has passed without being reviewed shows as overdue instead of blank.
+//
+// On top of that, the goal is a daily listening habit rather than cramming,
+// so only ONE lesson is unlocked per calendar day (see getTodaysPickIndex
+// and hasCompletedToday below) - every other lesson is locked until
+// tomorrow, even if it's overdue for review.
 const LESSON_SRS_KEY = "lessonSrs_v1";
+const DAILY_META_KEY = "lessonDailyMeta_v1";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const REVIEW_DAY_OFFSETS = [1, 2, 4, 7, 15];
 
@@ -115,6 +121,7 @@ const goToSpeakingBtn = document.getElementById("goToSpeakingBtn");
 const backHomeBtn = document.getElementById("backHomeBtn");
 
 const reviewBanner = document.getElementById("reviewBanner");
+const reviewBannerHint = document.getElementById("reviewBannerHint");
 const reviewTableBody = document.getElementById("reviewTableBody");
 const homeBtn = document.getElementById("homeBtn");
 
@@ -245,6 +252,69 @@ function getLastRecordedAt(entry) {
   return null;
 }
 
+function loadDailyMeta() {
+  try {
+    return JSON.parse(localStorage.getItem(DAILY_META_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function markCompletedToday() {
+  try {
+    localStorage.setItem(DAILY_META_KEY, JSON.stringify({ lastCompletionAt: Date.now() }));
+  } catch {
+    // localStorage unavailable - the daily lock just won't persist.
+  }
+}
+
+function hasCompletedToday() {
+  const meta = loadDailyMeta();
+  return !!(meta.lastCompletionAt && isSameCalendarDay(meta.lastCompletionAt, Date.now()));
+}
+
+// Picks the single lesson unlocked today. Priority: a lesson whose review
+// is overdue (the longest-overdue one first) beats a never-started lesson
+// (earliest in the list), which beats a lesson whose review is coming up
+// soon (soonest first). Once every lesson is either not-yet-due or fully
+// graduated, fall back to whichever lesson hasn't been touched in the
+// longest time, so there's always exactly one pick.
+function getTodaysPickIndex(store) {
+  const now = Date.now();
+  let overdueBest = null;
+  let firstNew = null;
+  let upcomingBest = null;
+  let staleBest = null;
+
+  LESSONS.forEach((lesson, index) => {
+    const entry = getLessonEntry(store, lesson.videoId);
+    const nextIdx = entry.reviews.findIndex((v) => !v);
+
+    if (nextIdx === 0) {
+      if (firstNew === null) firstNew = index;
+      return;
+    }
+    if (nextIdx === -1) {
+      const lastAt = getLastRecordedAt(entry);
+      if (!staleBest || lastAt < staleBest.lastAt) staleBest = { index, lastAt };
+      return;
+    }
+
+    const dueAt = entry.reviews[0] + REVIEW_DAY_OFFSETS[nextIdx] * DAY_MS;
+    if (now >= dueAt) {
+      if (!overdueBest || dueAt < overdueBest.dueAt) overdueBest = { index, dueAt };
+    } else if (!upcomingBest || dueAt < upcomingBest.dueAt) {
+      upcomingBest = { index, dueAt };
+    }
+  });
+
+  if (overdueBest) return overdueBest.index;
+  if (firstNew !== null) return firstNew;
+  if (upcomingBest) return upcomingBest.index;
+  if (staleBest) return staleBest.index;
+  return 0;
+}
+
 function formatDateShort(ts) {
   const d = new Date(ts);
   return `${d.getMonth() + 1}/${d.getDate()}`;
@@ -257,6 +327,8 @@ function formatDateShort(ts) {
 // right away for extra practice doesn't let a kid fill in multiple
 // checkpoints at once.
 function recordLessonCompletion() {
+  markCompletedToday();
+
   const store = loadLessonSrsStore();
   const entry = getLessonEntry(store, currentLesson().videoId);
   const now = Date.now();
@@ -291,32 +363,46 @@ function startQuizFromTable(index) {
 // Column "1" is stamped the moment a lesson is first completed; columns
 // 2/4/7/15 are due that many days after the "1" date, and turn into an
 // "overdue" warning (instead of a blank dash) once their due date has
-// passed without being completed. Each row's button jumps straight to that
-// lesson's video.
+// passed without being completed. Only today's picked lesson (see
+// getTodaysPickIndex) is unlockable - every other row is locked, and once
+// a lesson's been completed today every row locks, so a kid gets exactly
+// one lesson a day and builds the habit instead of binging or skipping.
 function renderReviewBanner() {
   const store = loadLessonSrsStore();
+  const completedToday = hasCompletedToday();
+  const pickIndex = getTodaysPickIndex(store);
   reviewTableBody.innerHTML = "";
+
+  reviewBannerHint.textContent = completedToday
+    ? "🌟 今天已經聽完一課囉！明天再回來繼續吧～"
+    : `👉 今天就聽這一課：「${LESSONS[pickIndex].title}」，先養成每天聽英文的習慣！`;
 
   LESSONS.forEach((lesson, index) => {
     const entry = getLessonEntry(store, lesson.videoId);
+    const isLocked = completedToday || index !== pickIndex;
     const row = document.createElement("tr");
+    row.className = isLocked ? "review-row-locked" : "review-row-pick";
 
     const titleCell = document.createElement("td");
     titleCell.className = "review-lesson-cell";
     const titleEl = document.createElement("div");
     titleEl.className = "review-lesson-title";
-    titleEl.textContent = lesson.title;
+    titleEl.textContent = (isLocked ? "" : "⭐ ") + lesson.title;
     const actionsRow = document.createElement("div");
     actionsRow.className = "review-lesson-actions";
 
     const actionBtn = document.createElement("button");
     actionBtn.className = "review-lesson-btn";
     actionBtn.textContent = entry.reviews[0] ? "🔁 複習" : "▶️ 開始";
+    actionBtn.disabled = isLocked;
+    actionBtn.title = isLocked ? "今天只能聽一課，明天再來吧！" : "";
     actionBtn.addEventListener("click", () => startLesson(index));
 
     const quizBtn = document.createElement("button");
     quizBtn.className = "review-lesson-btn review-quiz-btn";
     quizBtn.textContent = "📝 測驗";
+    quizBtn.disabled = isLocked;
+    quizBtn.title = isLocked ? "今天只能聽一課，明天再來吧！" : "";
     quizBtn.addEventListener("click", () => startQuizFromTable(index));
 
     actionsRow.appendChild(actionBtn);

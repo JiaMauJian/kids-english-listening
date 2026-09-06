@@ -253,9 +253,26 @@ input[type="range"] {
   transform: translateY(1px);
 }
 
+.review-lesson-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .review-quiz-btn {
   background: #a5d8ff;
   color: #063b6b;
+}
+
+.review-row-locked {
+  opacity: 0.5;
+}
+
+.review-row-pick {
+  background: #fff9e8;
+}
+
+.review-row-pick .review-lesson-title {
+  color: #b45f00;
 }
 
 .review-cell.done {
