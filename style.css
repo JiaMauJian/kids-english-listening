@@ -149,6 +149,94 @@ input[type="range"] {
   accent-color: #ff6f61;
 }
 
+.review-banner {
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff3e0;
+  border: 2px dashed #ffd166;
+  text-align: center;
+}
+
+.review-banner-hint {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.review-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 14px;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.review-table th,
+.review-table td {
+  padding: 8px 6px;
+  font-size: 0.8rem;
+  border: 1px solid #ffe2ad;
+  text-align: center;
+}
+
+.review-table thead th {
+  background: #ffd166;
+  color: #6b4a00;
+  font-weight: bold;
+}
+
+.review-table thead th:first-child {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.review-table td:first-child {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.review-lesson-cell {
+  min-width: 140px;
+}
+
+.review-lesson-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.review-lesson-btn {
+  border: none;
+  border-radius: 999px;
+  background: #ffd166;
+  color: #6b4a00;
+  font-weight: bold;
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.review-lesson-btn:active {
+  transform: translateY(1px);
+}
+
+.review-cell.done {
+  color: #2e7d32;
+  font-weight: bold;
+  background: #e6f7e9;
+}
+
+.review-cell.pending {
+  color: #ccc;
+}
+
 .quiz-section {
   margin-top: 24px;
   padding-top: 20px;
@@ -309,4 +397,137 @@ input[type="range"] {
   color: #888;
   font-size: 0.9rem;
   margin: 8px 0;
+}
+
+/* ============ Tablet layout ============ */
+
+/* Tablet portrait and up: more breathing room, bigger text and touch
+   targets since small fingers need larger buttons than a mouse cursor. */
+@media (min-width: 600px) {
+  body {
+    padding: 32px;
+  }
+
+  .container {
+    max-width: 640px;
+    padding: 40px 40px 48px;
+    border-radius: 28px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .status {
+    font-size: 1.05rem;
+  }
+
+  .ctrl-btn {
+    padding: 18px 8px;
+    font-size: 1rem;
+    border-radius: 18px;
+  }
+
+  .ctrl-btn.big {
+    font-size: 1.15rem;
+  }
+
+  .row-label {
+    font-size: 1rem;
+  }
+
+  .speed-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .volume-row input[type="range"] {
+    width: 180px;
+  }
+
+  .quiz-title {
+    font-size: 1.6rem;
+  }
+
+  .quiz-question,
+  .speaking-sentence {
+    font-size: 1.3rem;
+  }
+
+  .quiz-option-btn {
+    font-size: 1.1rem;
+    padding: 16px 20px;
+  }
+
+  .quiz-score {
+    font-size: 1.4rem;
+  }
+
+  .quiz-score-msg {
+    font-size: 1.05rem;
+  }
+
+  .review-banner-hint {
+    font-size: 0.9rem;
+  }
+
+  .review-table th,
+  .review-table td {
+    font-size: 0.95rem;
+    padding: 10px 8px;
+  }
+
+  .review-lesson-btn {
+    font-size: 0.85rem;
+    padding: 6px 16px;
+  }
+}
+
+/* Tablet landscape and up: the player controls stay fixed on the left
+   while the current activity (review reminder / quiz / speaking
+   practice) plays out on the right, so kids don't need to scroll past
+   the controls to reach it. Falls back to the normal stacked mobile
+   order below this width. */
+@media (min-width: 900px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .app-columns {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    align-items: start;
+    gap: 40px;
+  }
+
+  .player-col {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+  }
+
+  .review-banner {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .quiz-section {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .speaking-section {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
 }
