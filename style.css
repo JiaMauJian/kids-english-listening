@@ -202,7 +202,7 @@ input[type="range"] {
 }
 
 .review-lesson-cell {
-  min-width: 140px;
+  min-width: 170px;
 }
 
 .review-lesson-title {
@@ -212,6 +212,11 @@ input[type="range"] {
   line-height: 1.3;
 }
 
+.review-lesson-actions {
+  display: flex;
+  gap: 4px;
+}
+
 .review-lesson-btn {
   border: none;
   border-radius: 999px;
@@ -219,12 +224,18 @@ input[type="range"] {
   color: #6b4a00;
   font-weight: bold;
   font-size: 0.75rem;
-  padding: 5px 12px;
+  padding: 5px 10px;
+  white-space: nowrap;
   cursor: pointer;
 }
 
 .review-lesson-btn:active {
   transform: translateY(1px);
+}
+
+.review-quiz-btn {
+  background: #a5d8ff;
+  color: #063b6b;
 }
 
 .review-cell.done {

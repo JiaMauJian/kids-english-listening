@@ -276,6 +276,16 @@ function startLesson(index) {
   if (player) player.loadVideoById(LESSONS[index].videoId);
 }
 
+// Jumps straight to a lesson's quiz from the review table, skipping the
+// video - lets a kid who already knows a lesson retest without re-listening.
+// Cues (but doesn't play) the video first so the player still has the right
+// lesson loaded if they later hit "重新聽影片" from the quiz result.
+function startQuizFromTable(index) {
+  currentLessonIndex = index;
+  if (player) player.cueVideoById(LESSONS[index].videoId);
+  startQuiz();
+}
+
 // Builds the 內容 / 1 / 2 / 4 / 7 / 15 review table, one row per lesson.
 // Column "1" is stamped the moment a lesson is first completed; columns
 // 2/4/7/15 are due that many days after the "1" date, and turn into an
@@ -295,12 +305,23 @@ function renderReviewBanner() {
     const titleEl = document.createElement("div");
     titleEl.className = "review-lesson-title";
     titleEl.textContent = lesson.title;
+    const actionsRow = document.createElement("div");
+    actionsRow.className = "review-lesson-actions";
+
     const actionBtn = document.createElement("button");
     actionBtn.className = "review-lesson-btn";
     actionBtn.textContent = entry.reviews[0] ? "🔁 複習" : "▶️ 開始";
     actionBtn.addEventListener("click", () => startLesson(index));
+
+    const quizBtn = document.createElement("button");
+    quizBtn.className = "review-lesson-btn review-quiz-btn";
+    quizBtn.textContent = "📝 測驗";
+    quizBtn.addEventListener("click", () => startQuizFromTable(index));
+
+    actionsRow.appendChild(actionBtn);
+    actionsRow.appendChild(quizBtn);
     titleCell.appendChild(titleEl);
-    titleCell.appendChild(actionBtn);
+    titleCell.appendChild(actionsRow);
     row.appendChild(titleCell);
 
     const startedAt = entry.reviews[0];
