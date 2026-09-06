@@ -66,10 +66,12 @@ const LESSONS = [
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
-// One lesson = one schedule: after first completing the quiz, the lesson
-// should be reviewed again 1, 2, 4, 7, then 15 days later. Every quiz
-// completion fills in the next pending checkpoint with today's date (at
-// most once per calendar day, so mashing "retry" can't skip ahead).
+// One lesson = one schedule: finishing the quiz the first time stamps
+// today's date into checkpoint "1", then the lesson should be reviewed
+// again 2, 4, 7, then 15 days after that. Every quiz completion fills in
+// the next pending checkpoint with today's date (at most once per calendar
+// day, so mashing "retry" can't skip ahead); a checkpoint whose due date
+// has passed without being reviewed shows as overdue instead of blank.
 const LESSON_SRS_KEY = "lessonSrs_v1";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const REVIEW_DAY_OFFSETS = [1, 2, 4, 7, 15];
@@ -220,7 +222,7 @@ function saveLessonSrsStore(store) {
 
 function getLessonEntry(store, videoId) {
   if (!store[videoId]) {
-    store[videoId] = { startedAt: null, reviews: REVIEW_DAY_OFFSETS.map(() => null) };
+    store[videoId] = { reviews: REVIEW_DAY_OFFSETS.map(() => null) };
   }
   return store[videoId];
 }
@@ -239,7 +241,7 @@ function getLastRecordedAt(entry) {
   for (let i = entry.reviews.length - 1; i >= 0; i--) {
     if (entry.reviews[i]) return entry.reviews[i];
   }
-  return entry.startedAt;
+  return null;
 }
 
 function formatDateShort(ts) {
@@ -248,10 +250,11 @@ function formatDateShort(ts) {
 }
 
 // Records that the lesson's quiz was completed just now. The very first
-// completion just starts the clock (day 0); every completion after that
-// fills in the next pending 1/2/4/7/15-day checkpoint with today's date -
-// but only once per calendar day, so retrying the quiz right away for
-// extra practice doesn't let a kid fill in multiple checkpoints at once.
+// completion stamps today's date straight into the "1" checkpoint; every
+// completion after that fills in the next pending 2/4/7/15-day checkpoint
+// with today's date - but only once per calendar day, so retrying the quiz
+// right away for extra practice doesn't let a kid fill in multiple
+// checkpoints at once.
 function recordLessonCompletion() {
   const store = loadLessonSrsStore();
   const entry = getLessonEntry(store, currentLesson().videoId);
@@ -260,12 +263,8 @@ function recordLessonCompletion() {
   const lastRecordedAt = getLastRecordedAt(entry);
   if (lastRecordedAt && isSameCalendarDay(lastRecordedAt, now)) return;
 
-  if (!entry.startedAt) {
-    entry.startedAt = now;
-  } else {
-    const nextIdx = entry.reviews.findIndex((v) => !v);
-    if (nextIdx !== -1) entry.reviews[nextIdx] = now;
-  }
+  const nextIdx = entry.reviews.findIndex((v) => !v);
+  if (nextIdx !== -1) entry.reviews[nextIdx] = now;
   saveLessonSrsStore(store);
 }
 
@@ -278,8 +277,11 @@ function startLesson(index) {
 }
 
 // Builds the 內容 / 1 / 2 / 4 / 7 / 15 review table, one row per lesson.
-// Always visible - a blank cell just means that checkpoint hasn't been
-// reviewed yet. Each row's button jumps straight to that lesson's video.
+// Column "1" is stamped the moment a lesson is first completed; columns
+// 2/4/7/15 are due that many days after the "1" date, and turn into an
+// "overdue" warning (instead of a blank dash) once their due date has
+// passed without being completed. Each row's button jumps straight to that
+// lesson's video.
 function renderReviewBanner() {
   const store = loadLessonSrsStore();
   reviewTableBody.innerHTML = "";
@@ -295,17 +297,30 @@ function renderReviewBanner() {
     titleEl.textContent = lesson.title;
     const actionBtn = document.createElement("button");
     actionBtn.className = "review-lesson-btn";
-    actionBtn.textContent = entry.startedAt ? "🔁 複習" : "▶️ 開始";
+    actionBtn.textContent = entry.reviews[0] ? "🔁 複習" : "▶️ 開始";
     actionBtn.addEventListener("click", () => startLesson(index));
     titleCell.appendChild(titleEl);
     titleCell.appendChild(actionBtn);
     row.appendChild(titleCell);
 
-    REVIEW_DAY_OFFSETS.forEach((_, i) => {
+    const startedAt = entry.reviews[0];
+    REVIEW_DAY_OFFSETS.forEach((offsetDays, i) => {
       const cell = document.createElement("td");
       const reviewedAt = entry.reviews[i];
-      cell.className = "review-cell " + (reviewedAt ? "done" : "pending");
-      cell.textContent = reviewedAt ? formatDateShort(reviewedAt) : "—";
+      const isOverdue =
+        !reviewedAt && i > 0 && startedAt && Date.now() >= startedAt + offsetDays * DAY_MS;
+
+      if (reviewedAt) {
+        cell.className = "review-cell done";
+        cell.textContent = formatDateShort(reviewedAt);
+      } else if (isOverdue) {
+        cell.className = "review-cell overdue";
+        cell.textContent = "⚠️";
+        cell.title = "已經超過複習時間了，趕快來複習吧！";
+      } else {
+        cell.className = "review-cell pending";
+        cell.textContent = "—";
+      }
       row.appendChild(cell);
     });
 

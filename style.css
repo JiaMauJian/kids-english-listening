@@ -237,6 +237,12 @@ input[type="range"] {
   color: #ccc;
 }
 
+.review-cell.overdue {
+  color: #e65100;
+  font-weight: bold;
+  background: #fff3e0;
+}
+
 .quiz-section {
   margin-top: 24px;
   padding-top: 20px;
