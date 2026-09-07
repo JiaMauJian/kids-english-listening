@@ -55,15 +55,20 @@ h1 {
   font-size: 1rem;
 }
 
-/* Hide the YouTube video visually but keep it "on screen" so playback
-   isn't throttled by the browser like display:none can cause. */
+/* Hide the YouTube video visually but keep it inside the viewport (not
+   display:none, not pushed off-screen) - some mobile browsers (notably
+   iOS Safari) pause/never-initialize video that's positioned outside the
+   viewport as a battery-saving measure, which left tablets stuck forever
+   on "影片載入中". Pinning it on-screen at near-zero opacity avoids that. */
 #yt-player-wrapper {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 1px;
   height: 1px;
   overflow: hidden;
-  left: -9999px;
-  top: -9999px;
+  opacity: 0.01;
+  pointer-events: none;
 }
 
 .status {

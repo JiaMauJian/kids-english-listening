@@ -188,6 +188,20 @@ function currentLesson() {
   return LESSONS[currentLessonIndex];
 }
 
+// Some devices (e.g. tablets with parental-control / content-filtering
+// software that blocks youtube.com while still allowing this site) never
+// get a callback from the YouTube IFrame API at all - the status text would
+// otherwise be stuck on "影片載入中" forever with no explanation. If neither
+// onPlayerReady nor onPlayerError has fired after a while, assume that's
+// what happened and tell the user what to check instead of hanging silently.
+const YT_LOAD_TIMEOUT_MS = 12000;
+let ytLoadTimeoutId = setTimeout(() => {
+  if (!player) {
+    statusEl.textContent =
+      "影片一直載入不出來，請確認這台裝置可以連上 YouTube 網站（有些家長監控/校園網路會封鎖 YouTube），或換一台裝置、瀏覽器再試試看。";
+  }
+}, YT_LOAD_TIMEOUT_MS);
+
 // Called automatically by the YouTube IFrame API script once it has loaded.
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("yt-player", {
@@ -211,6 +225,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady() {
+  clearTimeout(ytLoadTimeoutId);
   statusEl.textContent = "準備好了，按「播放」開始聽吧！";
   player.setVolume(Number(volumeSlider.value));
   durationEl.textContent = formatTime(player.getDuration());
@@ -219,6 +234,7 @@ function onPlayerReady() {
 }
 
 function onPlayerError() {
+  clearTimeout(ytLoadTimeoutId);
   statusEl.textContent = "影片載入失敗，請檢查網路連線後重新整理頁面。";
   setControlsEnabled(false);
 }
@@ -376,9 +392,13 @@ function recordLessonCompletion() {
 // Switches the player to a different lesson's video and starts playing it -
 // used both for a first listen and for a later review, from the table.
 function startLesson(index) {
+  if (!player) {
+    statusEl.textContent = "影片還沒準備好，請再等一下下，或確認裝置可以連上 YouTube 網站。";
+    return;
+  }
   currentLessonIndex = index;
   reviewBanner.hidden = true;
-  if (player) player.loadVideoById(LESSONS[index].videoId);
+  player.loadVideoById(LESSONS[index].videoId);
 }
 
 // Jumps straight to a lesson's quiz from the review table, skipping the
