@@ -234,10 +234,12 @@ input[type="range"] {
 
 .review-lesson-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 
 .review-lesson-btn {
+  display: inline-block;
   border: none;
   border-radius: 999px;
   background: #ffd166;
@@ -247,6 +249,7 @@ input[type="range"] {
   padding: 5px 10px;
   white-space: nowrap;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .review-lesson-btn:active {
@@ -263,8 +266,9 @@ input[type="range"] {
   color: #063b6b;
 }
 
-.review-row-locked {
-  opacity: 0.5;
+.review-youtube-link {
+  background: #ffd2d2;
+  color: #a30000;
 }
 
 .review-row-pick {
@@ -553,7 +557,7 @@ input[type="range"] {
 
   .app-columns {
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 380px minmax(0, 1fr);
     align-items: start;
     gap: 40px;
   }
@@ -567,6 +571,7 @@ input[type="range"] {
     grid-column: 2;
     grid-row: 1;
     margin-bottom: 0;
+    min-width: 0;
   }
 
   .quiz-section {

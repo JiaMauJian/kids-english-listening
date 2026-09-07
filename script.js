@@ -74,9 +74,9 @@ const LESSONS = [
 // has passed without being reviewed shows as overdue instead of blank.
 //
 // On top of that, the goal is a daily listening habit rather than cramming,
-// so only ONE lesson is unlocked per calendar day (see getTodaysPickIndex
-// and hasCompletedToday below) - every other lesson is locked until
-// tomorrow, even if it's overdue for review.
+// so one lesson is highlighted as today's recommended pick (see
+// getTodaysPickIndex and hasCompletedToday below) - it's just a soft
+// suggestion though, every lesson stays clickable.
 const LESSON_SRS_KEY = "lessonSrs_v1";
 const DAILY_META_KEY = "lessonDailyMeta_v1";
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -363,10 +363,9 @@ function startQuizFromTable(index) {
 // Column "1" is stamped the moment a lesson is first completed; columns
 // 2/4/7/15 are due that many days after the "1" date, and turn into an
 // "overdue" warning (instead of a blank dash) once their due date has
-// passed without being completed. Only today's picked lesson (see
-// getTodaysPickIndex) is unlockable - every other row is locked, and once
-// a lesson's been completed today every row locks, so a kid gets exactly
-// one lesson a day and builds the habit instead of binging or skipping.
+// passed without being completed. Today's picked lesson (see
+// getTodaysPickIndex) is starred as a recommendation, but every row stays
+// clickable - the pick is just a suggestion, not a lock.
 function renderReviewBanner() {
   const store = loadLessonSrsStore();
   const completedToday = hasCompletedToday();
@@ -374,39 +373,43 @@ function renderReviewBanner() {
   reviewTableBody.innerHTML = "";
 
   reviewBannerHint.textContent = completedToday
-    ? "🌟 今天已經聽完一課囉！明天再回來繼續吧～"
-    : `👉 今天就聽這一課：「${LESSONS[pickIndex].title}」，先養成每天聽英文的習慣！`;
+    ? "🌟 今天已經聽完一課囉！想再聽哪一課都可以～"
+    : `👉 今天推薦聽這一課：「${LESSONS[pickIndex].title}」，先養成每天聽英文的習慣！`;
 
   LESSONS.forEach((lesson, index) => {
     const entry = getLessonEntry(store, lesson.videoId);
-    const isLocked = completedToday || index !== pickIndex;
+    const isPick = !completedToday && index === pickIndex;
     const row = document.createElement("tr");
-    row.className = isLocked ? "review-row-locked" : "review-row-pick";
+    row.className = isPick ? "review-row-pick" : "";
 
     const titleCell = document.createElement("td");
     titleCell.className = "review-lesson-cell";
     const titleEl = document.createElement("div");
     titleEl.className = "review-lesson-title";
-    titleEl.textContent = (isLocked ? "" : "⭐ ") + lesson.title;
+    titleEl.textContent = (isPick ? "⭐ " : "") + lesson.title;
     const actionsRow = document.createElement("div");
     actionsRow.className = "review-lesson-actions";
 
     const actionBtn = document.createElement("button");
     actionBtn.className = "review-lesson-btn";
     actionBtn.textContent = entry.reviews[0] ? "🔁 複習" : "▶️ 開始";
-    actionBtn.disabled = isLocked;
-    actionBtn.title = isLocked ? "今天只能聽一課，明天再來吧！" : "";
     actionBtn.addEventListener("click", () => startLesson(index));
 
     const quizBtn = document.createElement("button");
     quizBtn.className = "review-lesson-btn review-quiz-btn";
     quizBtn.textContent = "📝 測驗";
-    quizBtn.disabled = isLocked;
-    quizBtn.title = isLocked ? "今天只能聽一課，明天再來吧！" : "";
     quizBtn.addEventListener("click", () => startQuizFromTable(index));
+
+    const youtubeLink = document.createElement("a");
+    youtubeLink.className = "review-lesson-btn review-youtube-link";
+    youtubeLink.textContent = "▶️ YouTube";
+    youtubeLink.href = `https://www.youtube.com/watch?v=${lesson.videoId}`;
+    youtubeLink.target = "_blank";
+    youtubeLink.rel = "noopener noreferrer";
 
     actionsRow.appendChild(actionBtn);
     actionsRow.appendChild(quizBtn);
+    actionsRow.appendChild(youtubeLink);
     titleCell.appendChild(titleEl);
     titleCell.appendChild(actionsRow);
     row.appendChild(titleCell);
