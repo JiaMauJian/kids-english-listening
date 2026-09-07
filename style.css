@@ -186,6 +186,8 @@ input[type="range"] {
 
 .review-table-wrap {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: 420px;
   margin-bottom: 14px;
 }
 
@@ -209,6 +211,9 @@ input[type="range"] {
   background: #ffd166;
   color: #6b4a00;
   font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .review-table thead th:first-child {
