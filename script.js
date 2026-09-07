@@ -63,6 +63,38 @@ const LESSONS = [
     ],
     speakingSentences: ["Everybody wears clothes.", "I don't have many clothes."],
   },
+  {
+    videoId: "Hi8Z1aQT3Lw",
+    title: "A2 English Listening Practice - Coffee",
+    quizQuestions: [
+      {
+        question: "Why does the speaker say caffeine can be hard for his body to handle?",
+        options: ["He might feel anxious or bad", "He gets a headache", "He can't sleep at night"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker say he loves besides coffee?",
+        options: ["Warm beverages like tea and hot chocolate", "Cold drinks like soda", "Alcoholic drinks"],
+        answer: 0,
+      },
+      {
+        question: "In the US, what do people often add to their coffee?",
+        options: ["Ice and lemon", "Sweeteners like coffee creamer or sugar", "Milk foam only"],
+        answer: 1,
+      },
+      {
+        question: "How does the speaker describe espresso shots compared to American coffee?",
+        options: ["Bigger and weaker", "Smaller and more concentrated", "The same size but sweeter"],
+        answer: 1,
+      },
+      {
+        question: "Why does the speaker say he likes to work at cafes?",
+        options: ["The coffee is cheaper there", "He feels more inspired in a different environment", "There is no Wi-Fi at his house"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
+  },
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
