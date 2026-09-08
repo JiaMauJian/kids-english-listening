@@ -188,13 +188,19 @@ function currentLesson() {
   return LESSONS[currentLessonIndex];
 }
 
-// Some devices (e.g. tablets with parental-control / content-filtering
-// software that blocks youtube.com while still allowing this site) never
-// get a callback from the YouTube IFrame API at all - the status text would
-// otherwise be stuck on "影片載入中" forever with no explanation. If neither
-// onPlayerReady nor onPlayerError has fired after a while, assume that's
-// what happened and tell the user what to check instead of hanging silently.
+// The YouTube IFrame API is documented to call window.onYouTubeIframeAPIReady
+// automatically once its library has finished loading - but in practice
+// that callback can just never fire (observed first-hand: YT.Player was
+// fully loaded and working, calling the init logic by hand worked instantly,
+// yet the automatic callback never came). Rather than depend on that single
+// signal, also poll for window.YT.Player directly and initialize ourselves
+// the moment it's available, so a missed callback can't leave the app stuck
+// forever on "影片載入中".
+const YT_POLL_INTERVAL_MS = 300;
 const YT_LOAD_TIMEOUT_MS = 12000;
+let ytPollTimer = setInterval(() => {
+  if (!player && window.YT && window.YT.Player) initYouTubePlayer();
+}, YT_POLL_INTERVAL_MS);
 let ytLoadTimeoutId = setTimeout(() => {
   if (!player) {
     statusEl.textContent =
@@ -202,8 +208,12 @@ let ytLoadTimeoutId = setTimeout(() => {
   }
 }, YT_LOAD_TIMEOUT_MS);
 
-// Called automatically by the YouTube IFrame API script once it has loaded.
-function onYouTubeIframeAPIReady() {
+// Builds the YouTube player. Normally invoked automatically by the IFrame
+// API once it's loaded (via onYouTubeIframeAPIReady below); also invoked by
+// the poll above as a fallback in case that automatic callback never fires.
+function initYouTubePlayer() {
+  if (player) return;
+  clearInterval(ytPollTimer);
   player = new YT.Player("yt-player", {
     height: "1",
     width: "1",
@@ -222,6 +232,11 @@ function onYouTubeIframeAPIReady() {
       onError: onPlayerError,
     },
   });
+}
+
+// Called automatically by the YouTube IFrame API script once it has loaded.
+function onYouTubeIframeAPIReady() {
+  initYouTubePlayer();
 }
 
 function onPlayerReady() {
