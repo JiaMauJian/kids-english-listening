@@ -95,6 +95,38 @@ const LESSONS = [
     ],
     speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
   },
+  {
+    videoId: "wUKvSlx95xc",
+    title: "A2 English Listening Practice - Road Trips",
+    quizQuestions: [
+      {
+        question: "According to the speaker, what is a \"road trip\"?",
+        options: ["Traveling a long distance by car", "Taking a short walk", "Flying to another country"],
+        answer: 0,
+      },
+      {
+        question: "What happened to the speaker's car on the way from Southern California to Idaho?",
+        options: ["It got a flat tire", "It broke down halfway there", "It ran out of gas"],
+        answer: 1,
+      },
+      {
+        question: "Besides a reliable car, what does the speaker say is important for a good road trip?",
+        options: ["A GPS device", "Good road trip music or entertainment", "A big suitcase"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker say about the US highway system?",
+        options: ["It's poorly maintained", "It's confusing and hard to navigate", "It connects the whole country and is well maintained"],
+        answer: 2,
+      },
+      {
+        question: "What can people do at rest stops along the highway?",
+        options: ["Rent a car", "Stretch their legs and buy snacks from vending machines", "Get a haircut"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I love taking road trips.", "I need a reliable car."],
+  },
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
