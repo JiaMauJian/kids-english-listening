@@ -599,4 +599,16 @@ input[type="range"] {
     padding-top: 0;
     border-top: none;
   }
+
+  /* Home mode: no lesson picked yet, so the player column is hidden -
+     let the lesson list use the full width instead of leaving an empty
+     380px gap where the player would go. */
+  .app-columns.home-mode {
+    grid-template-columns: 1fr;
+  }
+
+  .app-columns.home-mode .review-banner {
+    grid-column: 1;
+    grid-row: 1;
+  }
 }

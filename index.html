@@ -12,7 +12,9 @@
     <h1>🎧 英聽小教室</h1>
     <p class="subtitle">閉上眼睛，用耳朵聽聽看吧！</p>
 
-    <div class="app-columns">
+    <div id="yt-player-wrapper"><div id="yt-player"></div></div>
+
+    <div id="appColumns" class="app-columns home-mode">
       <div id="reviewBanner" class="review-banner">
         <p class="review-banner-hint" id="reviewBannerHint">💡 依照「1-2-4-7-15 記憶曲線」複習，把英文永久記起來！</p>
         <div class="review-table-wrap">
@@ -32,9 +34,7 @@
         </div>
       </div>
 
-      <div class="player-col">
-        <div id="yt-player-wrapper"><div id="yt-player"></div></div>
-
+      <div id="playerCol" class="player-col" hidden>
         <p class="status" id="status">影片載入中，請稍等...</p>
 
         <div class="controls">

@@ -184,6 +184,8 @@ const quizReplayBtn = document.getElementById("quizReplayBtn");
 const goToSpeakingBtn = document.getElementById("goToSpeakingBtn");
 const backHomeBtn = document.getElementById("backHomeBtn");
 
+const appColumnsEl = document.getElementById("appColumns");
+const playerColEl = document.getElementById("playerCol");
 const reviewBanner = document.getElementById("reviewBanner");
 const reviewBannerHint = document.getElementById("reviewBannerHint");
 const reviewTableBody = document.getElementById("reviewTableBody");
@@ -218,6 +220,16 @@ function setControlsEnabled(enabled) {
 
 function currentLesson() {
   return LESSONS[currentLessonIndex];
+}
+
+// Toggles between the full-width lesson list (home mode) and the active
+// lesson view (player + quiz/speaking). The YouTube iframe itself
+// (#yt-player-wrapper) lives outside this toggle and is never hidden -
+// hiding it would stop it from rendering and re-trigger the "stuck
+// loading forever" issue on some tablets.
+function setHomeMode(isHome) {
+  appColumnsEl.classList.toggle("home-mode", isHome);
+  playerColEl.hidden = isHome;
 }
 
 // The YouTube IFrame API is documented to call window.onYouTubeIframeAPIReady
@@ -445,6 +457,7 @@ function startLesson(index) {
   }
   currentLessonIndex = index;
   reviewBanner.hidden = true;
+  setHomeMode(false);
   player.loadVideoById(LESSONS[index].videoId);
 }
 
@@ -455,6 +468,7 @@ function startLesson(index) {
 function startQuizFromTable(index) {
   currentLessonIndex = index;
   if (player) player.cueVideoById(LESSONS[index].videoId);
+  setHomeMode(false);
   startQuiz();
 }
 
@@ -639,6 +653,7 @@ function goHome() {
   speakingSection.hidden = true;
   renderReviewBanner();
   reviewBanner.hidden = false;
+  setHomeMode(true);
 }
 
 backHomeBtn.addEventListener("click", goHome);
