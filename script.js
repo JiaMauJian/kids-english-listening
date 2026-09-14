@@ -130,12 +130,13 @@ const LESSONS = [
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
-// One lesson = one schedule: finishing the quiz the first time stamps
-// today's date into checkpoint "1", then the lesson should be reviewed
-// again 2, 4, 7, then 15 days after that. Every quiz completion fills in
-// the next pending checkpoint with today's date (at most once per calendar
-// day, so mashing "retry" can't skip ahead); a checkpoint whose due date
-// has passed without being reviewed shows as overdue instead of blank.
+// One lesson = one schedule: finishing the audio the first time (the quiz
+// isn't required) stamps today's date into checkpoint "1", then the lesson
+// should be reviewed again 2, 4, 7, then 15 days after that. Every listen
+// (or quiz completion, e.g. from a table retest) fills in the next pending
+// checkpoint with today's date (at most once per calendar day, so replaying
+// the audio right away can't skip ahead); a checkpoint whose due date has
+// passed without being reviewed shows as overdue instead of blank.
 //
 // On top of that, the goal is a daily listening habit rather than cramming,
 // so one lesson is highlighted as today's recommended pick (see
@@ -314,6 +315,7 @@ function onPlayerStateChange(event) {
   } else if (event.data === YT.PlayerState.ENDED) {
     playPauseBtn.innerHTML = "▶️<br>播放";
     statusEl.textContent = "聽完了！來做個小測驗吧 📝";
+    recordLessonCompletion();
     startQuiz();
   }
 }
@@ -427,12 +429,14 @@ function formatDateShort(ts) {
   return `${d.getMonth() + 1}/${d.getDate()}`;
 }
 
-// Records that the lesson's quiz was completed just now. The very first
-// completion stamps today's date straight into the "1" checkpoint; every
-// completion after that fills in the next pending 2/4/7/15-day checkpoint
-// with today's date - but only once per calendar day, so retrying the quiz
-// right away for extra practice doesn't let a kid fill in multiple
-// checkpoints at once.
+// Records that the lesson was completed just now - called as soon as the
+// audio finishes playing (the quiz is optional practice, not a requirement
+// for stamping the date), and again if the quiz is finished separately (e.g.
+// a table retest that skips straight to the quiz). The very first completion
+// stamps today's date straight into the "1" checkpoint; every completion
+// after that fills in the next pending 2/4/7/15-day checkpoint with today's
+// date - but only once per calendar day, so replaying the audio or retrying
+// the quiz right away doesn't let a kid fill in multiple checkpoints at once.
 function recordLessonCompletion() {
   markCompletedToday();
 
