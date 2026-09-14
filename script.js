@@ -127,6 +127,38 @@ const LESSONS = [
     ],
     speakingSentences: ["I love taking road trips.", "I need a reliable car."],
   },
+  {
+    videoId: "DTvgAxi5mVA",
+    title: "A2 English Listening Practice - Reading and Books",
+    quizQuestions: [
+      {
+        question: "What are the two main categories of books the speaker talks about?",
+        options: ["Fiction and non-fiction", "Comics and novels", "Old books and new books"],
+        answer: 0,
+      },
+      {
+        question: "Which classic mystery author does the speaker mention as a best-selling writer?",
+        options: ["Agatha Christie", "J.K. Rowling", "Stephen King"],
+        answer: 0,
+      },
+      {
+        question: "Which three American authors does the speaker say he really enjoys?",
+        options: ["Steinbeck, Faulkner, and Hemingway", "Mark Twain and Edgar Allan Poe", "Fitzgerald and Toni Morrison"],
+        answer: 0,
+      },
+      {
+        question: "What genre about the wild west does the speaker's father like?",
+        options: ["Science fiction", "Westerns", "Fantasy"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker say is a great way to improve your knowledge of a new language?",
+        options: ["Reading books in that language, starting at your own level", "Only watching movies", "Memorizing grammar rules"],
+        answer: 0,
+      },
+    ],
+    speakingSentences: ["I love reading books.", "Reading is a great way to learn."],
+  },
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
