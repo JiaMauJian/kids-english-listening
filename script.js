@@ -32,100 +32,36 @@ const LESSONS = [
     speakingSentences: ["I've always loved traveling.", "It's nice to travel once in a while."],
   },
   {
-    videoId: "audbOVSuCds",
-    title: "A2 English Listening Practice - Clothes and Fashion",
+    videoId: "xL3jQzi7q_M",
+    title: "A2 English Listening Practice - Sports",
     quizQuestions: [
       {
-        question: "When did the speaker start taking fashion seriously?",
-        options: ["Middle school", "College", "Elementary school"],
+        question: "What was the first sport the speaker played, when he was four or five years old?",
+        options: ["T-ball", "Basketball", "Golf"],
         answer: 0,
       },
       {
-        question: "What are \"baggy clothes\" like, according to the speaker?",
-        options: ["Clothes made of expensive fabric", "Clothes that are too big and long", "Clothes that fit perfectly"],
+        question: "Why does the speaker say he had an advantage playing basketball as a kid?",
+        options: ["He had a personal coach", "He was taller than the other kids", "He practiced every single day"],
         answer: 1,
       },
       {
-        question: "What did the speaker start buying a lot of in high school?",
-        options: ["Winter coats", "Suits", "Basketball shoes like Air Jordans and Nikes"],
-        answer: 2,
+        question: "Why did the speaker quit playing American football?",
+        options: ["He got injured", "The team practiced too much and he wasn't serious enough", "He didn't like his coach"],
+        answer: 1,
       },
       {
-        question: "What was the speaker's first job, at age 17?",
-        options: ["Working at a clothing store called Hollister", "Working at a shoe store called Foot Locker", "Working at a department store called JCPenney"],
+        question: "What does the speaker say makes golf so addicting?",
+        options: ["It's very easy to learn", "It's so difficult that a good shot feels really rewarding", "You don't need much time to play it"],
+        answer: 1,
+      },
+      {
+        question: "Which was the speaker's favorite football team when he was younger?",
+        options: ["The Seattle Seahawks", "The LA Lakers", "The LA Rams"],
         answer: 0,
-      },
-      {
-        question: "What does the speaker say about malls in the US?",
-        options: ["They are only open during the Christmas season", "They can be found everywhere, and most are indoor", "They are hard to find"],
-        answer: 1,
       },
     ],
-    speakingSentences: ["Everybody wears clothes.", "I don't have many clothes."],
-  },
-  {
-    videoId: "Hi8Z1aQT3Lw",
-    title: "A2 English Listening Practice - Coffee",
-    quizQuestions: [
-      {
-        question: "Why does the speaker say caffeine can be hard for his body to handle?",
-        options: ["He might feel anxious or bad", "He gets a headache", "He can't sleep at night"],
-        answer: 0,
-      },
-      {
-        question: "What does the speaker say he loves besides coffee?",
-        options: ["Warm beverages like tea and hot chocolate", "Cold drinks like soda", "Alcoholic drinks"],
-        answer: 0,
-      },
-      {
-        question: "In the US, what do people often add to their coffee?",
-        options: ["Ice and lemon", "Sweeteners like coffee creamer or sugar", "Milk foam only"],
-        answer: 1,
-      },
-      {
-        question: "How does the speaker describe espresso shots compared to American coffee?",
-        options: ["Bigger and weaker", "Smaller and more concentrated", "The same size but sweeter"],
-        answer: 1,
-      },
-      {
-        question: "Why does the speaker say he likes to work at cafes?",
-        options: ["The coffee is cheaper there", "He feels more inspired in a different environment", "There is no Wi-Fi at his house"],
-        answer: 1,
-      },
-    ],
-    speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
-  },
-  {
-    videoId: "wUKvSlx95xc",
-    title: "A2 English Listening Practice - Road Trips",
-    quizQuestions: [
-      {
-        question: "According to the speaker, what is a \"road trip\"?",
-        options: ["Traveling a long distance by car", "Taking a short walk", "Flying to another country"],
-        answer: 0,
-      },
-      {
-        question: "What happened to the speaker's car on the way from Southern California to Idaho?",
-        options: ["It got a flat tire", "It broke down halfway there", "It ran out of gas"],
-        answer: 1,
-      },
-      {
-        question: "Besides a reliable car, what does the speaker say is important for a good road trip?",
-        options: ["A GPS device", "Good road trip music or entertainment", "A big suitcase"],
-        answer: 1,
-      },
-      {
-        question: "What does the speaker say about the US highway system?",
-        options: ["It's poorly maintained", "It's confusing and hard to navigate", "It connects the whole country and is well maintained"],
-        answer: 2,
-      },
-      {
-        question: "What can people do at rest stops along the highway?",
-        options: ["Rent a car", "Stretch their legs and buy snacks from vending machines", "Get a haircut"],
-        answer: 1,
-      },
-    ],
-    speakingSentences: ["I love taking road trips.", "I need a reliable car."],
+    speakingSentences: ["I've always liked sports.", "Golf is really addicting."],
   },
   {
     videoId: "DTvgAxi5mVA",
@@ -160,38 +96,6 @@ const LESSONS = [
     speakingSentences: ["I love reading books.", "Reading is a great way to learn."],
   },
   {
-    videoId: "xL3jQzi7q_M",
-    title: "A2 English Listening Practice - Sports",
-    quizQuestions: [
-      {
-        question: "What was the first sport the speaker played, when he was four or five years old?",
-        options: ["T-ball", "Basketball", "Golf"],
-        answer: 0,
-      },
-      {
-        question: "Why does the speaker say he had an advantage playing basketball as a kid?",
-        options: ["He had a personal coach", "He was taller than the other kids", "He practiced every single day"],
-        answer: 1,
-      },
-      {
-        question: "Why did the speaker quit playing American football?",
-        options: ["He got injured", "The team practiced too much and he wasn't serious enough", "He didn't like his coach"],
-        answer: 1,
-      },
-      {
-        question: "What does the speaker say makes golf so addicting?",
-        options: ["It's very easy to learn", "It's so difficult that a good shot feels really rewarding", "You don't need much time to play it"],
-        answer: 1,
-      },
-      {
-        question: "Which was the speaker's favorite football team when he was younger?",
-        options: ["The Seattle Seahawks", "The LA Lakers", "The LA Rams"],
-        answer: 0,
-      },
-    ],
-    speakingSentences: ["I've always liked sports.", "Golf is really addicting."],
-  },
-  {
     videoId: "GH7x5w7mtjE",
     title: "A2 English Listening Practice - Seasons",
     quizQuestions: [
@@ -222,6 +126,102 @@ const LESSONS = [
       },
     ],
     speakingSentences: ["Summer is my favorite season.", "I love long, sunny days."],
+  },
+  {
+    videoId: "audbOVSuCds",
+    title: "A2 English Listening Practice - Clothes and Fashion",
+    quizQuestions: [
+      {
+        question: "When did the speaker start taking fashion seriously?",
+        options: ["Middle school", "College", "Elementary school"],
+        answer: 0,
+      },
+      {
+        question: "What are \"baggy clothes\" like, according to the speaker?",
+        options: ["Clothes made of expensive fabric", "Clothes that are too big and long", "Clothes that fit perfectly"],
+        answer: 1,
+      },
+      {
+        question: "What did the speaker start buying a lot of in high school?",
+        options: ["Winter coats", "Suits", "Basketball shoes like Air Jordans and Nikes"],
+        answer: 2,
+      },
+      {
+        question: "What was the speaker's first job, at age 17?",
+        options: ["Working at a clothing store called Hollister", "Working at a shoe store called Foot Locker", "Working at a department store called JCPenney"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker say about malls in the US?",
+        options: ["They are only open during the Christmas season", "They can be found everywhere, and most are indoor", "They are hard to find"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["Everybody wears clothes.", "I don't have many clothes."],
+  },
+  {
+    videoId: "wUKvSlx95xc",
+    title: "A2 English Listening Practice - Road Trips",
+    quizQuestions: [
+      {
+        question: "According to the speaker, what is a \"road trip\"?",
+        options: ["Traveling a long distance by car", "Taking a short walk", "Flying to another country"],
+        answer: 0,
+      },
+      {
+        question: "What happened to the speaker's car on the way from Southern California to Idaho?",
+        options: ["It got a flat tire", "It broke down halfway there", "It ran out of gas"],
+        answer: 1,
+      },
+      {
+        question: "Besides a reliable car, what does the speaker say is important for a good road trip?",
+        options: ["A GPS device", "Good road trip music or entertainment", "A big suitcase"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker say about the US highway system?",
+        options: ["It's poorly maintained", "It's confusing and hard to navigate", "It connects the whole country and is well maintained"],
+        answer: 2,
+      },
+      {
+        question: "What can people do at rest stops along the highway?",
+        options: ["Rent a car", "Stretch their legs and buy snacks from vending machines", "Get a haircut"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I love taking road trips.", "I need a reliable car."],
+  },
+  {
+    videoId: "Hi8Z1aQT3Lw",
+    title: "A2 English Listening Practice - Coffee",
+    quizQuestions: [
+      {
+        question: "Why does the speaker say caffeine can be hard for his body to handle?",
+        options: ["He might feel anxious or bad", "He gets a headache", "He can't sleep at night"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker say he loves besides coffee?",
+        options: ["Warm beverages like tea and hot chocolate", "Cold drinks like soda", "Alcoholic drinks"],
+        answer: 0,
+      },
+      {
+        question: "In the US, what do people often add to their coffee?",
+        options: ["Ice and lemon", "Sweeteners like coffee creamer or sugar", "Milk foam only"],
+        answer: 1,
+      },
+      {
+        question: "How does the speaker describe espresso shots compared to American coffee?",
+        options: ["Bigger and weaker", "Smaller and more concentrated", "The same size but sweeter"],
+        answer: 1,
+      },
+      {
+        question: "Why does the speaker say he likes to work at cafes?",
+        options: ["The coffee is cheaper there", "He feels more inspired in a different environment", "There is no Wi-Fi at his house"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
   },
 ];
 
