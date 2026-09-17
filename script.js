@@ -159,6 +159,70 @@ const LESSONS = [
     ],
     speakingSentences: ["I love reading books.", "Reading is a great way to learn."],
   },
+  {
+    videoId: "xL3jQzi7q_M",
+    title: "A2 English Listening Practice - Sports",
+    quizQuestions: [
+      {
+        question: "What was the first sport the speaker played, when he was four or five years old?",
+        options: ["T-ball", "Basketball", "Golf"],
+        answer: 0,
+      },
+      {
+        question: "Why does the speaker say he had an advantage playing basketball as a kid?",
+        options: ["He had a personal coach", "He was taller than the other kids", "He practiced every single day"],
+        answer: 1,
+      },
+      {
+        question: "Why did the speaker quit playing American football?",
+        options: ["He got injured", "The team practiced too much and he wasn't serious enough", "He didn't like his coach"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker say makes golf so addicting?",
+        options: ["It's very easy to learn", "It's so difficult that a good shot feels really rewarding", "You don't need much time to play it"],
+        answer: 1,
+      },
+      {
+        question: "Which was the speaker's favorite football team when he was younger?",
+        options: ["The Seattle Seahawks", "The LA Lakers", "The LA Rams"],
+        answer: 0,
+      },
+    ],
+    speakingSentences: ["I've always liked sports.", "Golf is really addicting."],
+  },
+  {
+    videoId: "GH7x5w7mtjE",
+    title: "A2 English Listening Practice - Seasons",
+    quizQuestions: [
+      {
+        question: "What is another word for the \"fall\" season that the speaker mentions?",
+        options: ["Winter", "Autumn", "Monsoon"],
+        answer: 1,
+      },
+      {
+        question: "Why does the speaker say the days get longer in spring?",
+        options: ["Because of daylight savings time", "Because school ends", "Because it gets colder"],
+        answer: 0,
+      },
+      {
+        question: "Why is summer the speaker's favorite season?",
+        options: ["He loves cold, rainy weather", "He loves the sun and long days", "He loves staying indoors"],
+        answer: 1,
+      },
+      {
+        question: "What happens to the leaves in fall in a place like Oregon?",
+        options: ["They stay green all season", "They change to red, orange, and yellow", "They disappear right away"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker say about winter in Southern California and Mexico?",
+        options: ["It's very cold and snowy", "It's mild and doesn't snow", "It's the same as summer"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["Summer is my favorite season.", "I love long, sunny days."],
+  },
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
