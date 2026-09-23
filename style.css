@@ -305,6 +305,29 @@ input[type="range"] {
   background: #fff3e0;
 }
 
+.review-cell.editable {
+  position: relative;
+  cursor: pointer;
+}
+
+.review-cell.editable:hover {
+  outline: 2px dashed #9ecbff;
+  outline-offset: -3px;
+}
+
+/* Invisible native date input covering the whole cell, so a tap anywhere
+   on the cell opens the date picker (see renderReviewBanner). */
+.review-cell-date-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+}
+
 .quiz-section {
   margin-top: 24px;
   padding-top: 20px;

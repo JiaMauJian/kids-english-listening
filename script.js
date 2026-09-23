@@ -548,6 +548,56 @@ function recordLessonCompletion() {
   saveLessonSrsStore(store);
 }
 
+function toDateInputValue(ts) {
+  const d = new Date(ts);
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+// Parses a "YYYY-MM-DD" date input value as local noon, so the stamp can't
+// slip to a neighbouring day through timezone/DST rounding.
+function fromDateInputValue(value) {
+  const [y, m, d] = value.split("-").map(Number);
+  return new Date(y, m - 1, d, 12).getTime();
+}
+
+// Lets a parent stamp a checkpoint by hand - e.g. when the lesson was
+// listened to on YouTube directly or on another device, so the automatic
+// stamp never happened. Checkpoints stay in order: only an already-stamped
+// cell or the next pending one can be set, and the date must fall between
+// its neighbours (and not in the future). Clearing a cell also clears every
+// later checkpoint, since those were scheduled off of it.
+function setLessonCheckpointManually(lessonIndex, checkpointIdx, value) {
+  const store = loadLessonSrsStore();
+  const entry = getLessonEntry(store, LESSONS[lessonIndex].videoId);
+
+  if (!value) {
+    const hasLater = entry.reviews.slice(checkpointIdx + 1).some(Boolean);
+    const msg = hasLater
+      ? "要清除這個日期嗎？後面的複習日期也會一起清除喔。"
+      : "要清除這個日期嗎？";
+    if (!confirm(msg)) return renderReviewBanner();
+    for (let i = checkpointIdx; i < entry.reviews.length; i++) entry.reviews[i] = null;
+  } else {
+    const ts = fromDateInputValue(value);
+    const prev = checkpointIdx > 0 ? entry.reviews[checkpointIdx - 1] : null;
+    const next = entry.reviews[checkpointIdx + 1];
+    if (
+      ts > Date.now() ||
+      (prev && ts < fromDateInputValue(toDateInputValue(prev))) ||
+      (next && ts > fromDateInputValue(toDateInputValue(next)))
+    ) {
+      alert("日期要在前一次和下一次複習之間，而且不能是未來的日子喔！");
+      return renderReviewBanner();
+    }
+    entry.reviews[checkpointIdx] = ts;
+    if (isSameCalendarDay(ts, Date.now())) markCompletedToday();
+  }
+
+  saveLessonSrsStore(store);
+  renderReviewBanner();
+}
+
 // Switches the player to a different lesson's video and starts playing it -
 // used both for a first listen and for a later review, from the table.
 function startLesson(index) {
@@ -644,6 +694,33 @@ function renderReviewBanner() {
       } else {
         cell.className = "review-cell pending";
         cell.textContent = "—";
+      }
+
+      // Stamped cells and the next pending one get an invisible date input
+      // laid over them, so tapping the cell opens the native date picker.
+      const isNextPending = !reviewedAt && (i === 0 || entry.reviews[i - 1]);
+      if (reviewedAt || isNextPending) {
+        cell.classList.add("editable");
+        if (!cell.title) cell.title = "點一下可以手動設定日期";
+        const dateInput = document.createElement("input");
+        dateInput.type = "date";
+        dateInput.className = "review-cell-date-input";
+        dateInput.setAttribute("aria-label", `${lesson.title} 第 ${offsetDays} 天的日期`);
+        dateInput.max = toDateInputValue(Date.now());
+        if (i > 0 && entry.reviews[i - 1]) dateInput.min = toDateInputValue(entry.reviews[i - 1]);
+        if (entry.reviews[i + 1]) dateInput.max = toDateInputValue(entry.reviews[i + 1]);
+        if (reviewedAt) dateInput.value = toDateInputValue(reviewedAt);
+        dateInput.addEventListener("click", () => {
+          try {
+            dateInput.showPicker();
+          } catch {
+            // Older browsers open the picker on tap by themselves.
+          }
+        });
+        dateInput.addEventListener("change", () =>
+          setLessonCheckpointManually(index, i, dateInput.value)
+        );
+        cell.appendChild(dateInput);
       }
       row.appendChild(cell);
     });
