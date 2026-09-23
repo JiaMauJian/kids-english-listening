@@ -192,6 +192,38 @@ const LESSONS = [
     speakingSentences: ["I love going to the zoo.", "Penguins are my favorite animal."],
   },
   {
+    videoId: "MX5DVYoggxY",
+    title: "A2 English Listening Practice - Nature",
+    quizQuestions: [
+      {
+        question: "What does the speaker say about how most people feel about nature?",
+        options: ["Most people don't care about nature", "Most people like nature", "Most people are afraid of nature"],
+        answer: 1,
+      },
+      {
+        question: "Why does the speaker say it's important for him to get outside?",
+        options: ["He works indoors most of the time and needs fresh air", "He doesn't like being at home", "His job requires him to travel a lot"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker say is his favorite winter mountain sport?",
+        options: ["Skiing", "Snowboarding", "Ice skating"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker like to do while camping in the forest with his family?",
+        options: ["Roast marshmallows over the campfire", "Build a treehouse", "Go fishing in a lake"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker like to do at the beach near his hometown?",
+        options: ["Go surfing", "Watch the sunset", "Build sandcastles"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I love spending time in nature.", "Nature makes me feel relaxed."],
+  },
+  {
     videoId: "wUKvSlx95xc",
     title: "A2 English Listening Practice - Road Trips",
     quizQuestions: [
