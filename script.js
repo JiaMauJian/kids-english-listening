@@ -160,6 +160,38 @@ const LESSONS = [
     speakingSentences: ["Everybody wears clothes.", "I don't have many clothes."],
   },
   {
+    videoId: "2Yk1M6URsCU",
+    title: "A2 English Listening Practice - Zoo Animals",
+    quizQuestions: [
+      {
+        question: "What city is the speaker from, which has one of the best zoos in the world?",
+        options: ["San Diego", "New York", "Los Angeles"],
+        answer: 0,
+      },
+      {
+        question: "What is the most famous animal at the zoo, according to the speaker?",
+        options: ["The lion", "The panda bear", "The elephant"],
+        answer: 1,
+      },
+      {
+        question: "What is special about the Sun bear the speaker studied in college?",
+        options: ["It's the biggest bear species", "It's smaller and spends a lot of time climbing trees", "It only lives in the Arctic"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker say about the lions at the zoo?",
+        options: ["They are always running around", "They are usually just lying down or sleeping", "They are the most active animals"],
+        answer: 1,
+      },
+      {
+        question: "What is the speaker's favorite animal at the zoo?",
+        options: ["Gorillas", "Polar bears", "Penguins"],
+        answer: 2,
+      },
+    ],
+    speakingSentences: ["I love going to the zoo.", "Penguins are my favorite animal."],
+  },
+  {
     videoId: "wUKvSlx95xc",
     title: "A2 English Listening Practice - Road Trips",
     quizQuestions: [
