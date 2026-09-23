@@ -1,6 +1,7 @@
 const LESSONS = [
   {
     videoId: "gOMypAhVaXE",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Travel",
     quizQuestions: [
       {
@@ -33,6 +34,7 @@ const LESSONS = [
   },
   {
     videoId: "xL3jQzi7q_M",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Sports",
     quizQuestions: [
       {
@@ -65,6 +67,7 @@ const LESSONS = [
   },
   {
     videoId: "DTvgAxi5mVA",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Reading and Books",
     quizQuestions: [
       {
@@ -97,6 +100,7 @@ const LESSONS = [
   },
   {
     videoId: "GH7x5w7mtjE",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Seasons",
     quizQuestions: [
       {
@@ -129,6 +133,7 @@ const LESSONS = [
   },
   {
     videoId: "audbOVSuCds",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Clothes and Fashion",
     quizQuestions: [
       {
@@ -161,6 +166,7 @@ const LESSONS = [
   },
   {
     videoId: "2Yk1M6URsCU",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Zoo Animals",
     quizQuestions: [
       {
@@ -193,6 +199,7 @@ const LESSONS = [
   },
   {
     videoId: "MX5DVYoggxY",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Nature",
     quizQuestions: [
       {
@@ -225,6 +232,7 @@ const LESSONS = [
   },
   {
     videoId: "wUKvSlx95xc",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Road Trips",
     quizQuestions: [
       {
@@ -257,6 +265,7 @@ const LESSONS = [
   },
   {
     videoId: "Hi8Z1aQT3Lw",
+    series: "Listening Time",
     title: "A2 English Listening Practice - Coffee",
     quizQuestions: [
       {
@@ -287,6 +296,111 @@ const LESSONS = [
     ],
     speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
   },
+  {
+    videoId: "4eNlLwkwhaY",
+    series: "Miss Honey",
+    title: "Real Life English Vlog - Cooking Chicken Soup (Part 1)",
+    startSeconds: 0,
+    endSeconds: 423,
+    quizQuestions: [
+      {
+        question: "Why does the speaker decide to make chicken soup today?",
+        options: ["Because it's her favorite food", "Because her throat feels sore", "Because her dad is visiting"],
+        answer: 1,
+      },
+      {
+        question: "Who does the speaker usually ask to make chicken soup for her?",
+        options: ["Her mom", "Her dad", "Her friend"],
+        answer: 1,
+      },
+      {
+        question: "Why has the speaker never cooked chicken before?",
+        options: ["She doesn't like the taste of chicken", "She was vegetarian for a while and only ate vegetarian meals", "She is allergic to chicken"],
+        answer: 1,
+      },
+      {
+        question: "What does the speaker add to the water to help it boil faster?",
+        options: ["Sugar", "Oil", "Salt"],
+        answer: 2,
+      },
+      {
+        question: "What foods does the speaker say she used to eat every day when she was vegetarian?",
+        options: ["Steak and potatoes", "Lentils, beans, rice, and avocado", "Pizza and pasta"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I've never cooked chicken before.", "My dad makes the best chicken soup."],
+  },
+  {
+    videoId: "4eNlLwkwhaY",
+    series: "Miss Honey",
+    title: "Real Life English Vlog - Cooking Chicken Soup (Part 2)",
+    startSeconds: 423,
+    endSeconds: 884,
+    quizQuestions: [
+      {
+        question: "What vegetables does the speaker put in the soup, according to her ingredient list?",
+        options: ["Baby carrots, cabbage, purple onion, and broccoli", "Potatoes and green beans", "Corn and peas"],
+        answer: 0,
+      },
+      {
+        question: "What tip did a viewer give the speaker in the comments about cooking?",
+        options: ["Don't use too much salt", "Don't scratch the pan with a metal fork", "Always wash vegetables twice"],
+        answer: 1,
+      },
+      {
+        question: "According to her dad's text message, when should the carrots go into the soup?",
+        options: ["At the very end", "Before the chicken", "At the same time as the cabbage"],
+        answer: 2,
+      },
+      {
+        question: "Why does the speaker say her apartment feels like a mess right now?",
+        options: ["She just moved in and is still buying things she needs", "She has too many pets", "She is renovating the kitchen"],
+        answer: 0,
+      },
+      {
+        question: "What band did the speaker go see with her family?",
+        options: ["The Killers", "Coldplay", "The Beatles"],
+        answer: 0,
+      },
+    ],
+    speakingSentences: ["I just moved into a new apartment.", "Don't scratch the pan with a metal fork."],
+  },
+  {
+    videoId: "4eNlLwkwhaY",
+    series: "Miss Honey",
+    title: "Real Life English Vlog - Cooking Chicken Soup (Part 3)",
+    startSeconds: 884,
+    endSeconds: 1214,
+    quizQuestions: [
+      {
+        question: "What does the speaker add to her bowl of chicken soup that she loves?",
+        options: ["Sliced avocado", "Fried eggs", "Cheese"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker say about chicken soup as a dish?",
+        options: ["It's best eaten cold", "It gets better with time, like the next day", "It should only be eaten once"],
+        answer: 1,
+      },
+      {
+        question: "What three things does the speaker wash after cooking and eating?",
+        options: ["A bowl, a cutting board, and a knife", "Plates, cups, and forks", "Pots, pans, and spatulas"],
+        answer: 0,
+      },
+      {
+        question: "What message does the speaker give at the end of the video about learning English?",
+        options: ["You should only watch fast, advanced videos", "No matter what type of video, what matters is going in with the intention to learn", "You need a teacher to learn English"],
+        answer: 1,
+      },
+      {
+        question: "How does the speaker feel about cooking chicken and chicken soup for the first time?",
+        options: ["Proud and excited", "Disappointed", "Bored"],
+        answer: 0,
+      },
+    ],
+    speakingSentences: ["I love avocado in my soup.", "This soup gets better with time."],
+  },
 ];
 
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
@@ -311,6 +425,7 @@ let player;
 let isSeeking = false;
 let progressTimer = null;
 let currentLessonIndex = 0;
+let currentSeriesFilter = null;
 let quizIndex = 0;
 let quizScore = 0;
 let quizAnswered = false;
@@ -349,6 +464,7 @@ const appColumnsEl = document.getElementById("appColumns");
 const playerColEl = document.getElementById("playerCol");
 const reviewBanner = document.getElementById("reviewBanner");
 const reviewBannerHint = document.getElementById("reviewBannerHint");
+const seriesTabsEl = document.getElementById("seriesTabs");
 const reviewTableBody = document.getElementById("reviewTableBody");
 const homeBtn = document.getElementById("homeBtn");
 
@@ -381,6 +497,27 @@ function setControlsEnabled(enabled) {
 
 function currentLesson() {
   return LESSONS[currentLessonIndex];
+}
+
+// A lesson can be a clip of a longer video (see the "Cooking Chicken Soup"
+// series) rather than the whole thing - these two read that clip's bounds,
+// with lessonEndSeconds() returning null for a normal, unclipped lesson.
+function lessonStartSeconds() {
+  return currentLesson().startSeconds || 0;
+}
+
+function lessonEndSeconds() {
+  return currentLesson().endSeconds || null;
+}
+
+// Builds the {videoId, startSeconds, endSeconds} options object for
+// loadVideoById/cueVideoById, omitting the start/end keys entirely for a
+// normal lesson so the full video plays as before.
+function videoLoadOptions(lesson) {
+  const opts = { videoId: lesson.videoId };
+  if (lesson.startSeconds) opts.startSeconds = lesson.startSeconds;
+  if (lesson.endSeconds) opts.endSeconds = lesson.endSeconds;
+  return opts;
 }
 
 // Toggles between the full-width lesson list (home mode) and the active
@@ -448,7 +585,7 @@ function onPlayerReady() {
   clearTimeout(ytLoadTimeoutId);
   statusEl.textContent = "準備好了，按「播放」開始聽吧！";
   player.setVolume(Number(volumeSlider.value));
-  durationEl.textContent = formatTime(player.getDuration());
+  durationEl.textContent = formatTime((lessonEndSeconds() || player.getDuration()) - lessonStartSeconds());
   setControlsEnabled(true);
   startProgressTimer();
 }
@@ -672,7 +809,7 @@ function startLesson(index) {
   currentLessonIndex = index;
   reviewBanner.hidden = true;
   setHomeMode(false);
-  player.loadVideoById(LESSONS[index].videoId);
+  player.loadVideoById(videoLoadOptions(LESSONS[index]));
 }
 
 // Jumps straight to a lesson's quiz from the review table, skipping the
@@ -681,7 +818,7 @@ function startLesson(index) {
 // lesson loaded if they later hit "重新聽影片" from the quiz result.
 function startQuizFromTable(index) {
   currentLessonIndex = index;
-  if (player) player.cueVideoById(LESSONS[index].videoId);
+  if (player) player.cueVideoById(videoLoadOptions(LESSONS[index]));
   setHomeMode(false);
   startQuiz();
 }
@@ -703,7 +840,31 @@ function renderReviewBanner() {
     ? "🌟 今天已經聽完一課囉！想再聽哪一課都可以～"
     : `👉 今天推薦聽這一課：「${LESSONS[pickIndex].title}」，先養成每天聽英文的習慣！`;
 
+  // Lessons are grouped into series (see each lesson's `series` field),
+  // shown as tabs so a kid switches between series instead of scrolling
+  // one long list. The selected tab stays in currentSeriesFilter across
+  // re-renders (e.g. after finishing a quiz) until another tab is picked.
+  // Lessons keep their original LESSONS array index throughout (used for
+  // SRS lookups and the start/quiz buttons) - only which rows get built
+  // depends on the active tab.
+  const allSeries = [...new Set(LESSONS.map((lesson) => lesson.series))];
+  if (!allSeries.includes(currentSeriesFilter)) currentSeriesFilter = allSeries[0];
+
+  seriesTabsEl.innerHTML = "";
+  allSeries.forEach((series) => {
+    const tabBtn = document.createElement("button");
+    tabBtn.className = "series-tab-btn" + (series === currentSeriesFilter ? " active" : "");
+    tabBtn.textContent = series;
+    tabBtn.addEventListener("click", () => {
+      currentSeriesFilter = series;
+      renderReviewBanner();
+    });
+    seriesTabsEl.appendChild(tabBtn);
+  });
+
   LESSONS.forEach((lesson, index) => {
+    if (lesson.series !== currentSeriesFilter) return;
+
     const entry = getLessonEntry(store, lesson.videoId);
     const isPick = !completedToday && index === pickIndex;
     const row = document.createElement("tr");
@@ -730,7 +891,9 @@ function renderReviewBanner() {
     const youtubeLink = document.createElement("a");
     youtubeLink.className = "review-lesson-btn review-youtube-link";
     youtubeLink.textContent = "▶️ YouTube";
-    youtubeLink.href = `https://www.youtube.com/watch?v=${lesson.videoId}`;
+    youtubeLink.href = lesson.startSeconds
+      ? `https://www.youtube.com/watch?v=${lesson.videoId}&t=${lesson.startSeconds}s`
+      : `https://www.youtube.com/watch?v=${lesson.videoId}`;
     youtubeLink.target = "_blank";
     youtubeLink.rel = "noopener noreferrer";
 
@@ -878,7 +1041,7 @@ quizRetryBtn.addEventListener("click", startQuiz);
 
 quizReplayBtn.addEventListener("click", () => {
   quizSection.hidden = true;
-  player.seekTo(0, true);
+  player.seekTo(lessonStartSeconds(), true);
   player.playVideo();
 });
 
@@ -1019,7 +1182,7 @@ speakingReplayBtn.addEventListener("click", () => {
   stopMicStream();
   if ("speechSynthesis" in window) speechSynthesis.cancel();
   speakingSection.hidden = true;
-  player.seekTo(0, true);
+  player.seekTo(lessonStartSeconds(), true);
   player.playVideo();
 });
 
@@ -1027,8 +1190,8 @@ function startProgressTimer() {
   if (progressTimer) return;
   progressTimer = setInterval(() => {
     if (!player || isSeeking) return;
-    const duration = player.getDuration();
-    const current = player.getCurrentTime();
+    const duration = (lessonEndSeconds() || player.getDuration()) - lessonStartSeconds();
+    const current = Math.max(0, player.getCurrentTime() - lessonStartSeconds());
     if (duration > 0) {
       progressBar.max = duration;
       progressBar.value = current;
@@ -1048,17 +1211,17 @@ playPauseBtn.addEventListener("click", () => {
 });
 
 restartBtn.addEventListener("click", () => {
-  player.seekTo(0, true);
+  player.seekTo(lessonStartSeconds(), true);
   player.playVideo();
 });
 
 backBtn.addEventListener("click", () => {
-  const t = Math.max(0, player.getCurrentTime() - 5);
+  const t = Math.max(lessonStartSeconds(), player.getCurrentTime() - 5);
   player.seekTo(t, true);
 });
 
 forwardBtn.addEventListener("click", () => {
-  const t = Math.min(player.getDuration(), player.getCurrentTime() + 5);
+  const t = Math.min(lessonEndSeconds() || player.getDuration(), player.getCurrentTime() + 5);
   player.seekTo(t, true);
 });
 
@@ -1068,7 +1231,7 @@ progressBar.addEventListener("input", () => {
 });
 
 progressBar.addEventListener("change", () => {
-  player.seekTo(Number(progressBar.value), true);
+  player.seekTo(lessonStartSeconds() + Number(progressBar.value), true);
   isSeeking = false;
 });
 

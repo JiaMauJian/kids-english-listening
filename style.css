@@ -235,6 +235,30 @@ input[type="range"] {
   min-width: 170px;
 }
 
+.series-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.series-tab-btn {
+  border: 2px solid #ffd166;
+  background: #fff;
+  color: #b45f00;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.series-tab-btn.active {
+  background: #ffd166;
+  color: #6b4a00;
+}
+
 .review-lesson-title {
   font-weight: bold;
   color: #333;
@@ -575,6 +599,11 @@ input[type="range"] {
   .review-lesson-btn {
     font-size: 0.85rem;
     padding: 6px 16px;
+  }
+
+  .series-tab-btn {
+    font-size: 0.95rem;
+    padding: 8px 18px;
   }
 }
 
