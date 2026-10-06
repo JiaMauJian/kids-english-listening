@@ -396,6 +396,39 @@ const LESSONS = [
     speakingSentences: ["I enjoy visiting museums.", "My favorite museum has a lot of art."],
   },
   {
+    videoId: "LJRJ7IoAvls",
+    series: "Listening Time",
+    title: "A2 English Listening Practice - 4th of July",
+    quizQuestions: [
+      {
+        question: "What important document was signed on July 4th, 1776?",
+        options: ["The Declaration of Independence", "The first American newspaper", "A letter to the King of France"],
+        answer: 0,
+      },
+      {
+        question: "Why do Americans love celebrating the 4th of July?",
+        options: ["It is the first day of summer", "This day represents freedom", "It is the President's birthday"],
+        answer: 1,
+      },
+      {
+        question: "What do you see everywhere in the US on the 4th of July?",
+        options: ["Christmas trees", "Pumpkins", "American flags"],
+        answer: 2,
+      },
+      {
+        question: "What foods do Americans usually barbecue on the 4th of July?",
+        options: ["Pizza and pasta", "Hamburgers and hotdogs", "Fish and rice"],
+        answer: 1,
+      },
+      {
+        question: "What is the most iconic 4th of July tradition at night?",
+        options: ["Watching the fireworks", "Going to the movies", "Singing songs at school"],
+        answer: 0,
+      },
+    ],
+    speakingSentences: ["I love watching the fireworks.", "I like eating hamburgers and hotdogs."],
+  },
+  {
     videoId: "Hi8Z1aQT3Lw",
     series: "Listening Time",
     title: "A2 English Listening Practice - Coffee",
