@@ -30,7 +30,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I've always loved traveling.", "It's nice to travel once in a while."],
+    chunks: [
+      { en: "I've always loved...", zh: "我一直都很喜歡…", example: "I've always loved traveling." },
+      { en: "one of my favorite places", zh: "我最喜歡的地方之一", example: "Hawaii is one of my favorite places in the world." },
+      { en: "take a road trip", zh: "開車去旅行", example: "We took a road trip through Italy." },
+      { en: "rent a car", zh: "租車", example: "You should rent a car and drive around." },
+      { en: "spend the night", zh: "過夜", example: "I had to spend the night at the airport." },
+      { en: "once in a while", zh: "偶爾", example: "It's nice to travel once in a while." },
+    ],
   },
   {
     videoId: "xL3jQzi7q_M",
@@ -63,7 +70,14 @@ const LESSONS = [
         answer: 0,
       },
     ],
-    speakingSentences: ["I've always liked sports.", "Golf is really addicting."],
+    chunks: [
+      { en: "play sports", zh: "做運動", example: "I played a ton of sports when I was young." },
+      { en: "my favorite sport", zh: "我最喜歡的運動", example: "Basketball was my favorite sport." },
+      { en: "taller than", zh: "比…高", example: "I was taller than the other kids." },
+      { en: "hit a good shot", zh: "打出一個好球", example: "You feel proud when you hit a good shot." },
+      { en: "fall down", zh: "跌倒", example: "I fell down many times when I went snowboarding." },
+      { en: "from time to time", zh: "有時候、偶爾", example: "I still play sports from time to time." },
+    ],
   },
   {
     videoId: "DTvgAxi5mVA",
@@ -96,7 +110,14 @@ const LESSONS = [
         answer: 0,
       },
     ],
-    speakingSentences: ["I love reading books.", "Reading is a great way to learn."],
+    chunks: [
+      { en: "a great way to...", zh: "…的好方法", example: "Reading is a great way to learn." },
+      { en: "my favorite author", zh: "我最喜歡的作家", example: "Agatha Christie is my favorite author." },
+      { en: "keep it a secret", zh: "保守秘密", example: "She is good at keeping the answer a secret." },
+      { en: "at the end of the book", zh: "在書的最後", example: "You don't know what happens at the end of the book." },
+      { en: "children's books", zh: "兒童書", example: "Beginners should read children's books." },
+      { en: "a little bit every day", zh: "每天一點點", example: "I try to read a little bit every day." },
+    ],
   },
   {
     videoId: "GH7x5w7mtjE",
@@ -129,7 +150,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["Summer is my favorite season.", "I love long, sunny days."],
+    chunks: [
+      { en: "my favorite season", zh: "我最喜歡的季節", example: "Summer is my favorite season." },
+      { en: "the flowers bloom", zh: "花開了", example: "In spring, the flowers bloom." },
+      { en: "change color", zh: "變顏色", example: "The leaves change color in the fall." },
+      { en: "too hot", zh: "太熱了", example: "Forty-five degrees is too hot for me." },
+      { en: "summer vacation", zh: "暑假", example: "Kids love summer vacation." },
+      { en: "fall / autumn", zh: "秋天", example: "Fall is also called autumn." },
+    ],
   },
   {
     videoId: "audbOVSuCds",
@@ -162,7 +190,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["Everybody wears clothes.", "I don't have many clothes."],
+    chunks: [
+      { en: "wear clothes", zh: "穿衣服", example: "Everybody wears clothes." },
+      { en: "baggy clothes", zh: "寬鬆的衣服", example: "I wore baggy clothes in middle school." },
+      { en: "too big for you", zh: "對你來說太大了", example: "Baggy clothes are too big for you." },
+      { en: "match the color", zh: "搭配顏色", example: "I match the color of my shoes with my shirt." },
+      { en: "go shopping", zh: "去逛街、去買東西", example: "We go shopping at the mall." },
+      { en: "buy presents", zh: "買禮物", example: "I buy presents for everyone at Christmas." },
+    ],
   },
   {
     videoId: "2Yk1M6URsCU",
@@ -195,7 +230,14 @@ const LESSONS = [
         answer: 2,
       },
     ],
-    speakingSentences: ["I love going to the zoo.", "Penguins are my favorite animal."],
+    chunks: [
+      { en: "go to the zoo", zh: "去動物園", example: "I've always liked going to the zoo." },
+      { en: "my favorite animal", zh: "我最喜歡的動物", example: "Penguins are my favorite animal." },
+      { en: "look cute", zh: "看起來很可愛", example: "People think pandas look cute." },
+      { en: "climb trees", zh: "爬樹", example: "Sun bears spend a lot of time climbing trees." },
+      { en: "lie down", zh: "躺下", example: "The lions are always lying down or sleeping." },
+      { en: "in real life", zh: "在現實生活中、親眼看到", example: "Kids want to see the animals in real life." },
+    ],
   },
   {
     videoId: "MX5DVYoggxY",
@@ -228,7 +270,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I love spending time in nature.", "Nature makes me feel relaxed."],
+    chunks: [
+      { en: "spend time outdoors", zh: "待在戶外", example: "I like spending a lot of time outdoors." },
+      { en: "take a walk", zh: "去散步", example: "After work, I take a walk outside." },
+      { en: "get some fresh air", zh: "呼吸新鮮空氣", example: "Let's go outside and get some fresh air." },
+      { en: "go camping", zh: "去露營", example: "My family went camping every summer." },
+      { en: "under the stars", zh: "在星空下", example: "I loved spending the nights under the stars." },
+      { en: "watch the sunset", zh: "看夕陽", example: "We watch the sunset from the cliffs." },
+    ],
   },
   {
     videoId: "M25ieTfZ1eI",
@@ -261,7 +310,14 @@ const LESSONS = [
         answer: 0,
       },
     ],
-    speakingSentences: ["I am afraid of big spiders.", "My greatest fear is the dark."],
+    chunks: [
+      { en: "be afraid of...", zh: "害怕…", example: "I'm afraid of big spiders." },
+      { en: "fear of heights", zh: "懼高、怕高", example: "Many people have a fear of heights." },
+      { en: "run away screaming", zh: "尖叫著跑走", example: "Some people run away screaming when they see a spider." },
+      { en: "get nervous", zh: "變得緊張", example: "I get a little nervous in a dark forest." },
+      { en: "the dark", zh: "黑暗、暗的地方", example: "Are you afraid of the dark?" },
+      { en: "look creepy", zh: "看起來很嚇人", example: "Clowns look really creepy." },
+    ],
   },
   {
     videoId: "uvkY-UGeCmk",
@@ -294,7 +350,14 @@ const LESSONS = [
         answer: 2,
       },
     ],
-    speakingSentences: ["I like riding in the car.", "We should follow the rules of the road."],
+    chunks: [
+      { en: "feel safer", zh: "感覺比較安全", example: "Big cars feel safer than small cars." },
+      { en: "a lot of space", zh: "很多空間", example: "Minivans have a lot of space for kids." },
+      { en: "follow the rules", zh: "遵守規則", example: "Most people follow the rules of the road." },
+      { en: "honk the horn", zh: "按喇叭", example: "People in the US rarely honk their horns." },
+      { en: "get a ticket", zh: "被開罰單", example: "You can get a ticket for speeding." },
+      { en: "run a red light", zh: "闖紅燈", example: "Never run a red light!" },
+    ],
   },
   {
     videoId: "r1ZZn-vgwVc",
@@ -327,7 +390,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I like playing on the playground.", "My teacher is very nice."],
+    chunks: [
+      { en: "elementary school", zh: "小學", example: "I go to elementary school." },
+      { en: "first grade", zh: "一年級", example: "Kids in the US start first grade at six." },
+      { en: "the same teacher", zh: "同一個老師", example: "The same teacher teaches all the subjects." },
+      { en: "pass the class", zh: "(課程)及格", example: "You need a C to pass the class." },
+      { en: "during recess", zh: "下課時間", example: "We play on the playground during recess." },
+      { en: "lunch break", zh: "午休時間", example: "We played soccer during lunch break." },
+    ],
   },
   {
     videoId: "wUKvSlx95xc",
@@ -360,7 +430,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I love taking road trips.", "I need a reliable car."],
+    chunks: [
+      { en: "take a road trip", zh: "開車去旅行", example: "I love taking road trips." },
+      { en: "travel by car", zh: "坐車旅行", example: "A road trip is when you travel a long distance by car." },
+      { en: "broke down", zh: "(車子)壞掉了", example: "Our car broke down halfway there." },
+      { en: "listen to music", zh: "聽音樂", example: "I listen to music while I'm driving." },
+      { en: "get tired", zh: "變累", example: "If you get tired, you can stop and rest." },
+      { en: "stretch your legs", zh: "伸展一下腿", example: "Let's stop the car and stretch our legs." },
+    ],
   },
   {
     videoId: "vkOhudt_Ye8",
@@ -393,7 +470,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I enjoy visiting museums.", "My favorite museum has a lot of art."],
+    chunks: [
+      { en: "visit a museum", zh: "參觀博物館", example: "I enjoy visiting museums." },
+      { en: "for free", zh: "免費", example: "We got into the museum for free." },
+      { en: "a work of art", zh: "一件藝術作品", example: "The Statue of David is a famous work of art." },
+      { en: "in person", zh: "親眼、親自", example: "It was cool to see it in person." },
+      { en: "early in the morning", zh: "一大早", example: "We got to the museum early in the morning." },
+      { en: "take pictures", zh: "拍照", example: "Tourists love taking pictures next to the pyramid." },
+    ],
   },
   {
     videoId: "LJRJ7IoAvls",
@@ -426,7 +510,14 @@ const LESSONS = [
         answer: 0,
       },
     ],
-    speakingSentences: ["I love watching the fireworks.", "I like eating hamburgers and hotdogs."],
+    chunks: [
+      { en: "Independence Day", zh: "獨立紀念日", example: "The 4th of July is America's Independence Day." },
+      { en: "celebrate", zh: "慶祝", example: "Americans love to celebrate the 4th of July." },
+      { en: "have a barbecue", zh: "烤肉", example: "We have a barbecue with family and friends." },
+      { en: "fresh off the grill", zh: "剛烤好的", example: "I love hot dogs fresh off the grill." },
+      { en: "spend the day outside", zh: "整天待在外面", example: "Most people spend the day outside." },
+      { en: "watch the fireworks", zh: "看煙火", example: "At night, everyone watches the fireworks." },
+    ],
   },
   {
     videoId: "irGnL5nzR0Y",
@@ -459,7 +550,14 @@ const LESSONS = [
         answer: 2,
       },
     ],
-    speakingSentences: ["I brush my teeth twice a day.", "I go to the dentist for a checkup."],
+    chunks: [
+      { en: "go to the dentist", zh: "去看牙醫", example: "I go to the dentist twice a year." },
+      { en: "brush my teeth", zh: "刷牙", example: "I brush my teeth twice a day." },
+      { en: "floss my teeth", zh: "用牙線清牙齒", example: "I floss my teeth every night." },
+      { en: "get a cavity", zh: "蛀牙", example: "If you eat a lot of sugar, you can get a cavity." },
+      { en: "take care of", zh: "照顧", example: "Now I take better care of my teeth." },
+      { en: "get braces", zh: "戴牙套", example: "I got braces when I was 21." },
+    ],
   },
   {
     videoId: "Hi8Z1aQT3Lw",
@@ -492,7 +590,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
+    chunks: [
+      { en: "warm drinks", zh: "熱飲", example: "I really like warm drinks like hot chocolate." },
+      { en: "drink too much", zh: "喝太多", example: "If I drink too much coffee, I feel bad." },
+      { en: "a cup of coffee", zh: "一杯咖啡", example: "My dad drinks a cup of coffee every morning." },
+      { en: "drink it slowly", zh: "慢慢地喝", example: "I like to drink it slowly and enjoy it." },
+      { en: "hang out with friends", zh: "和朋友出去玩", example: "People go to cafes to hang out with friends." },
+      { en: "just relax", zh: "放鬆一下", example: "Cafes are nice places to just relax." },
+    ],
   },
   {
     videoId: "4eNlLwkwhaY",
@@ -527,7 +632,14 @@ const LESSONS = [
         answer: 1,
       },
     ],
-    speakingSentences: ["I've never cooked chicken before.", "My dad makes the best chicken soup."],
+    chunks: [
+      { en: "feel hungry", zh: "覺得餓", example: "I'm starting to feel a little bit hungry." },
+      { en: "cook lunch", zh: "煮午餐", example: "It's 11 a.m. It's time to cook lunch." },
+      { en: "a sore throat", zh: "喉嚨痛", example: "Chicken soup will help my sore throat." },
+      { en: "my favorite", zh: "我的最愛", example: "Chicken soup is my favorite." },
+      { en: "wait for it to boil", zh: "等它煮滾", example: "Let's wait for the water to boil." },
+      { en: "get sick", zh: "生病", example: "I hope I don't get sick." },
+    ],
   },
   {
     videoId: "4eNlLwkwhaY",
@@ -562,7 +674,14 @@ const LESSONS = [
         answer: 0,
       },
     ],
-    speakingSentences: ["I just moved into a new apartment.", "Don't scratch the pan with a metal fork."],
+    chunks: [
+      { en: "chop the cabbage", zh: "切高麗菜", example: "Let's chop our cabbage." },
+      { en: "wash it in the sink", zh: "在水槽裡洗", example: "Now let's wash the cabbage in the sink." },
+      { en: "at the same time", zh: "同時", example: "The carrots go in at the same time." },
+      { en: "take a break", zh: "休息一下", example: "We'll take a break and come back later." },
+      { en: "a new apartment", zh: "新的公寓", example: "This is my new apartment." },
+      { en: "take your shoes off", zh: "脫鞋子", example: "Do you take your shoes off at the door?" },
+    ],
   },
   {
     videoId: "4eNlLwkwhaY",
@@ -597,7 +716,14 @@ const LESSONS = [
         answer: 0,
       },
     ],
-    speakingSentences: ["I love avocado in my soup.", "This soup gets better with time."],
+    chunks: [
+      { en: "almost ready", zh: "快好了", example: "The soup is almost ready." },
+      { en: "proud of myself", zh: "為自己感到驕傲", example: "I'm so proud of myself." },
+      { en: "better with time", zh: "放越久越好", example: "Chicken soup gets better with time." },
+      { en: "cool down", zh: "放涼", example: "Let the soup cool down first." },
+      { en: "clean up", zh: "收拾乾淨", example: "I always clean up after lunch." },
+      { en: "never stop learning", zh: "永遠不要停止學習", example: "Remember, never stop learning." },
+    ],
   },
 ];
 
@@ -627,11 +753,11 @@ let currentSeriesFilter = null;
 let quizIndex = 0;
 let quizScore = 0;
 let quizAnswered = false;
-let speakingIndex = 0;
-let mediaRecorder = null;
-let audioChunks = [];
-let micStream = null;
-let isRecording = false;
+let chunkIndex = 0;
+let gameOrder = [];
+let gameIndex = 0;
+let gameScore = 0;
+let gameAnswered = false;
 
 const statusEl = document.getElementById("status");
 const playPauseBtn = document.getElementById("playPauseBtn");
@@ -655,7 +781,7 @@ const quizScoreEl = document.getElementById("quizScore");
 const quizScoreMsgEl = document.getElementById("quizScoreMsg");
 const quizRetryBtn = document.getElementById("quizRetryBtn");
 const quizReplayBtn = document.getElementById("quizReplayBtn");
-const goToSpeakingBtn = document.getElementById("goToSpeakingBtn");
+const goToGameBtn = document.getElementById("goToGameBtn");
 const backHomeBtn = document.getElementById("backHomeBtn");
 
 const appColumnsEl = document.getElementById("appColumns");
@@ -666,19 +792,31 @@ const seriesTabsEl = document.getElementById("seriesTabs");
 const reviewTableBody = document.getElementById("reviewTableBody");
 const homeBtn = document.getElementById("homeBtn");
 
-const speakingSection = document.getElementById("speakingSection");
-const speakingProgress = document.getElementById("speakingProgress");
-const speakingSentenceEl = document.getElementById("speakingSentence");
-const playModelBtn = document.getElementById("playModelBtn");
-const recordBtn = document.getElementById("recordBtn");
-const playbackArea = document.getElementById("playbackArea");
-const recordedAudio = document.getElementById("recordedAudio");
-const reRecordBtn = document.getElementById("reRecordBtn");
-const speakingStatusEl = document.getElementById("speakingStatus");
-const speakingNextBtn = document.getElementById("speakingNextBtn");
-const speakingResultEl = document.getElementById("speakingResult");
-const speakingRetryBtn = document.getElementById("speakingRetryBtn");
-const speakingReplayBtn = document.getElementById("speakingReplayBtn");
+const chunksSection = document.getElementById("chunksSection");
+const chunksProgress = document.getElementById("chunksProgress");
+const chunkEnEl = document.getElementById("chunkEn");
+const chunkZhEl = document.getElementById("chunkZh");
+const chunkExampleEl = document.getElementById("chunkExample");
+const chunkSpeakBtn = document.getElementById("chunkSpeakBtn");
+const chunkExampleSpeakBtn = document.getElementById("chunkExampleSpeakBtn");
+const chunkPrevBtn = document.getElementById("chunkPrevBtn");
+const chunkNextBtn = document.getElementById("chunkNextBtn");
+const chunksStartVideoBtn = document.getElementById("chunksStartVideoBtn");
+
+const gameSection = document.getElementById("gameSection");
+const gameProgress = document.getElementById("gameProgress");
+const gameStarsEl = document.getElementById("gameStars");
+const gameEnEl = document.getElementById("gameEn");
+const gameSpeakBtn = document.getElementById("gameSpeakBtn");
+const gameOptionsEl = document.getElementById("gameOptions");
+const gameFeedbackEl = document.getElementById("gameFeedback");
+const gameNextBtn = document.getElementById("gameNextBtn");
+const gameResultEl = document.getElementById("gameResult");
+const gameScoreEl = document.getElementById("gameScore");
+const gameScoreMsgEl = document.getElementById("gameScoreMsg");
+const gameRetryBtn = document.getElementById("gameRetryBtn");
+const gameReplayBtn = document.getElementById("gameReplayBtn");
+const gameHomeBtn = document.getElementById("gameHomeBtn");
 
 function formatTime(seconds) {
   seconds = Math.max(0, Math.floor(seconds || 0));
@@ -719,7 +857,7 @@ function videoLoadOptions(lesson) {
 }
 
 // Toggles between the full-width lesson list (home mode) and the active
-// lesson view (player + quiz/speaking). The YouTube iframe itself
+// lesson view (player + chunk preview/quiz/chunk game). The YouTube iframe itself
 // (#yt-player-wrapper) lives outside this toggle and is never hidden -
 // hiding it would stop it from rendering and re-trigger the "stuck
 // loading forever" issue on some tablets.
@@ -799,14 +937,14 @@ function onPlayerStateChange(event) {
     playPauseBtn.innerHTML = "⏸️<br>暫停";
     statusEl.textContent = "正在播放...仔細聽喔！";
     quizSection.hidden = true;
-    speakingSection.hidden = true;
+    chunksSection.hidden = true;
+    gameSection.hidden = true;
     reviewBanner.hidden = true;
-    stopMicStream();
-    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    stopSpeaking();
   } else if (event.data === YT.PlayerState.PAUSED) {
     playPauseBtn.innerHTML = "▶️<br>播放";
     statusEl.textContent = "已暫停";
-    if (quizSection.hidden && speakingSection.hidden) renderReviewBanner();
+    if (quizSection.hidden && chunksSection.hidden && gameSection.hidden) renderReviewBanner();
   } else if (event.data === YT.PlayerState.ENDED) {
     playPauseBtn.innerHTML = "▶️<br>播放";
     statusEl.textContent = "聽完了！來做個小測驗吧 📝";
@@ -1006,8 +1144,17 @@ function startLesson(index) {
   }
   currentLessonIndex = index;
   reviewBanner.hidden = true;
+  quizSection.hidden = true;
+  gameSection.hidden = true;
   setHomeMode(false);
-  player.loadVideoById(videoLoadOptions(LESSONS[index]));
+  if (LESSONS[index].chunks && LESSONS[index].chunks.length) {
+    // Cue (don't play) the video so it's ready the moment the kid taps
+    // "開始聽影片" after previewing the chunks.
+    player.cueVideoById(videoLoadOptions(LESSONS[index]));
+    startChunksPreview();
+  } else {
+    player.loadVideoById(videoLoadOptions(LESSONS[index]));
+  }
 }
 
 // Jumps straight to a lesson's quiz from the review table, skipping the
@@ -1221,6 +1368,7 @@ function showQuizResult() {
     msg = "💪 再聽一次，你可以答得更好！";
   }
   quizScoreMsgEl.textContent = msg;
+  goToGameBtn.hidden = !(currentLesson().chunks && currentLesson().chunks.length);
 
   recordLessonCompletion();
   renderReviewBanner();
@@ -1244,15 +1392,14 @@ quizReplayBtn.addEventListener("click", () => {
 });
 
 // Always-available "回首頁" shortcut - works no matter what's currently on
-// screen (video playing, mid-quiz, or speaking practice), so a kid can jump
+// screen (chunk preview, video playing, mid-quiz, or chunk game), so a kid can jump
 // back to the lesson list from anywhere.
 function goHome() {
   if (player && player.pauseVideo) player.pauseVideo();
-  if ("speechSynthesis" in window) speechSynthesis.cancel();
-  stopMicStream();
-  isRecording = false;
+  stopSpeaking();
   quizSection.hidden = true;
-  speakingSection.hidden = true;
+  chunksSection.hidden = true;
+  gameSection.hidden = true;
   renderReviewBanner();
   reviewBanner.hidden = false;
   setHomeMode(true);
@@ -1261,125 +1408,170 @@ function goHome() {
 backHomeBtn.addEventListener("click", goHome);
 homeBtn.addEventListener("click", goHome);
 
-goToSpeakingBtn.addEventListener("click", startSpeakingPractice);
-
-function startSpeakingPractice() {
-  speakingIndex = 0;
-  quizSection.hidden = true;
-  speakingSection.hidden = false;
-  renderSpeakingSentence();
-}
-
-function renderSpeakingSentence() {
-  stopMicStream();
-  isRecording = false;
-  playbackArea.hidden = true;
-  speakingResultEl.hidden = true;
-  recordBtn.hidden = false;
-  playModelBtn.hidden = false;
-  speakingStatusEl.textContent = "";
-  speakingNextBtn.hidden = true;
-  recordBtn.textContent = "🎙️ 開始錄音";
-  recordBtn.classList.remove("recording");
-
-  speakingProgress.textContent = `第 ${speakingIndex + 1} / ${currentLesson().speakingSentences.length} 句`;
-  speakingSentenceEl.textContent = currentLesson().speakingSentences[speakingIndex];
-}
-
-playModelBtn.addEventListener("click", () => {
-  if (!("speechSynthesis" in window)) {
-    speakingStatusEl.textContent = "這個瀏覽器不支援語音朗讀，請直接跟著影片練習發音喔！";
-    return;
-  }
-  const utterance = new SpeechSynthesisUtterance(currentLesson().speakingSentences[speakingIndex]);
+// --- Chunks (語塊): key phrases from the video, each with a Chinese meaning
+// and an example sentence. Previewed as cards before the video so the kid
+// already knows them when they come up, then practiced again after the quiz
+// in a "hear it -> pick the meaning" matching game. Pronunciation uses the
+// browser's built-in speech synthesis.
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
+  const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-US";
-  utterance.rate = 0.9;
+  utterance.rate = 0.85;
   speechSynthesis.cancel();
   speechSynthesis.speak(utterance);
-});
-
-recordBtn.addEventListener("click", () => {
-  if (isRecording) {
-    mediaRecorder.stop();
-    isRecording = false;
-    recordBtn.textContent = "🎙️ 開始錄音";
-    recordBtn.classList.remove("recording");
-  } else {
-    startRecording();
-  }
-});
-
-reRecordBtn.addEventListener("click", startRecording);
-
-async function startRecording() {
-  if (!navigator.mediaDevices || !window.MediaRecorder) {
-    speakingStatusEl.textContent = "這個瀏覽器不支援錄音功能，請換 Chrome 瀏覽器試試看！";
-    return;
-  }
-
-  try {
-    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-  } catch (err) {
-    speakingStatusEl.textContent = "請允許使用麥克風才能練習口說喔！";
-    return;
-  }
-
-  audioChunks = [];
-  mediaRecorder = new MediaRecorder(micStream);
-  mediaRecorder.addEventListener("dataavailable", (e) => {
-    if (e.data.size > 0) audioChunks.push(e.data);
-  });
-  mediaRecorder.addEventListener("stop", () => {
-    const blob = new Blob(audioChunks, { type: mediaRecorder.mimeType || "audio/webm" });
-    recordedAudio.src = URL.createObjectURL(blob);
-    playbackArea.hidden = false;
-    speakingNextBtn.hidden = false;
-    speakingStatusEl.textContent = "錄好了！聽聽看你唸得怎麼樣～";
-    stopMicStream();
-  });
-
-  mediaRecorder.start();
-  isRecording = true;
-  recordBtn.textContent = "⏹️ 停止錄音";
-  recordBtn.classList.add("recording");
-  playbackArea.hidden = true;
-  speakingNextBtn.hidden = true;
-  speakingStatusEl.textContent = "錄音中...跟著範例唸唸看！";
 }
 
-function stopMicStream() {
-  if (micStream) {
-    micStream.getTracks().forEach((t) => t.stop());
-    micStream = null;
-  }
-}
-
-speakingNextBtn.addEventListener("click", () => {
-  speakingIndex++;
-  if (speakingIndex < currentLesson().speakingSentences.length) {
-    renderSpeakingSentence();
-  } else {
-    showSpeakingResult();
-  }
-});
-
-function showSpeakingResult() {
-  speakingProgress.textContent = "";
-  speakingSentenceEl.textContent = "";
-  playbackArea.hidden = true;
-  speakingStatusEl.textContent = "";
-  speakingNextBtn.hidden = true;
-  recordBtn.hidden = true;
-  playModelBtn.hidden = true;
-  speakingResultEl.hidden = false;
-}
-
-speakingRetryBtn.addEventListener("click", startSpeakingPractice);
-
-speakingReplayBtn.addEventListener("click", () => {
-  stopMicStream();
+function stopSpeaking() {
   if ("speechSynthesis" in window) speechSynthesis.cancel();
-  speakingSection.hidden = true;
+}
+
+function shuffle(items) {
+  const arr = items.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function startChunksPreview() {
+  chunkIndex = 0;
+  chunksSection.hidden = false;
+  statusEl.textContent = "先認識語塊，準備好就按「開始聽影片」！";
+  renderChunkCard();
+}
+
+function renderChunkCard() {
+  const chunks = currentLesson().chunks;
+  const chunk = chunks[chunkIndex];
+  chunksProgress.textContent = `第 ${chunkIndex + 1} / ${chunks.length} 個`;
+  chunkEnEl.textContent = chunk.en;
+  chunkZhEl.textContent = chunk.zh;
+  chunkExampleEl.textContent = chunk.example;
+  chunkPrevBtn.disabled = chunkIndex === 0;
+  chunkNextBtn.disabled = chunkIndex === chunks.length - 1;
+  // Only make "start the video" the eye-catching button once every card
+  // has been seen - it still works earlier for a kid who wants to skip.
+  chunksStartVideoBtn.classList.toggle("ready", chunkIndex === chunks.length - 1);
+}
+
+chunkSpeakBtn.addEventListener("click", () => speak(currentLesson().chunks[chunkIndex].en));
+chunkExampleSpeakBtn.addEventListener("click", () => speak(currentLesson().chunks[chunkIndex].example));
+
+chunkPrevBtn.addEventListener("click", () => {
+  if (chunkIndex > 0) chunkIndex--;
+  renderChunkCard();
+});
+
+chunkNextBtn.addEventListener("click", () => {
+  if (chunkIndex < currentLesson().chunks.length - 1) chunkIndex++;
+  renderChunkCard();
+});
+
+// The preview hides itself once the video actually starts (see the PLAYING
+// branch of onPlayerStateChange) rather than here, so if a device blocks
+// playback the kid is left on the cards with the button to try again.
+chunksStartVideoBtn.addEventListener("click", () => {
+  stopSpeaking();
+  statusEl.textContent = "影片準備中...";
+  player.seekTo(lessonStartSeconds(), true);
+  player.playVideo();
+});
+
+goToGameBtn.addEventListener("click", startChunkGame);
+
+function startChunkGame() {
+  gameOrder = shuffle(currentLesson().chunks);
+  gameIndex = 0;
+  gameScore = 0;
+  quizSection.hidden = true;
+  gameResultEl.hidden = true;
+  gameSection.hidden = false;
+  renderGameQuestion();
+}
+
+function renderGameQuestion() {
+  gameAnswered = false;
+  gameFeedbackEl.textContent = "";
+  gameFeedbackEl.className = "quiz-feedback";
+  gameNextBtn.hidden = true;
+  gameEnEl.parentElement.hidden = false;
+
+  const chunk = gameOrder[gameIndex];
+  gameProgress.textContent = `第 ${gameIndex + 1} / ${gameOrder.length} 個`;
+  gameStarsEl.textContent = "⭐".repeat(gameScore);
+  gameEnEl.textContent = chunk.en;
+
+  // The right meaning plus two others from the same lesson.
+  const distractors = shuffle(gameOrder.filter((c) => c !== chunk)).slice(0, 2);
+  const options = shuffle([chunk, ...distractors]);
+  gameOptionsEl.innerHTML = "";
+  options.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.className = "quiz-option-btn";
+    btn.textContent = opt.zh;
+    btn.addEventListener("click", () => handleGameAnswer(btn, opt === chunk));
+    gameOptionsEl.appendChild(btn);
+  });
+
+  speak(chunk.en);
+}
+
+function handleGameAnswer(selectedBtn, isCorrect) {
+  if (gameAnswered) return;
+  gameAnswered = true;
+  if (isCorrect) gameScore++;
+
+  const chunk = gameOrder[gameIndex];
+  gameOptionsEl.querySelectorAll(".quiz-option-btn").forEach((btn) => {
+    btn.disabled = true;
+    if (btn.textContent === chunk.zh) btn.classList.add("correct");
+    else if (btn === selectedBtn) btn.classList.add("wrong");
+  });
+
+  gameStarsEl.textContent = "⭐".repeat(gameScore);
+  gameFeedbackEl.textContent = isCorrect ? "✅ 答對了！" : `❌ 正確答案是「${chunk.zh}」`;
+  gameFeedbackEl.className = "quiz-feedback " + (isCorrect ? "correct-text" : "wrong-text");
+  gameNextBtn.hidden = false;
+  gameNextBtn.textContent = gameIndex < gameOrder.length - 1 ? "下一個 ➡️" : "看結果 🏆";
+}
+
+gameSpeakBtn.addEventListener("click", () => speak(gameOrder[gameIndex].en));
+
+gameNextBtn.addEventListener("click", () => {
+  gameIndex++;
+  if (gameIndex < gameOrder.length) {
+    renderGameQuestion();
+  } else {
+    showGameResult();
+  }
+});
+
+function showGameResult() {
+  gameProgress.textContent = "";
+  gameEnEl.parentElement.hidden = true;
+  gameOptionsEl.innerHTML = "";
+  gameFeedbackEl.textContent = "";
+  gameNextBtn.hidden = true;
+  gameResultEl.hidden = false;
+
+  gameScoreEl.textContent = `你答對了 ${gameScore} / ${gameOrder.length} 個語塊`;
+  if (gameScore === gameOrder.length) {
+    gameScoreMsgEl.textContent = "🌟🌟🌟 全部答對！語塊小達人！";
+  } else if (gameScore >= Math.ceil(gameOrder.length / 2)) {
+    gameScoreMsgEl.textContent = "👍 很不錯喔！再玩一次會更棒！";
+  } else {
+    gameScoreMsgEl.textContent = "💪 再玩一次，你可以記得更多！";
+  }
+}
+
+gameRetryBtn.addEventListener("click", startChunkGame);
+gameHomeBtn.addEventListener("click", goHome);
+
+gameReplayBtn.addEventListener("click", () => {
+  stopSpeaking();
+  gameSection.hidden = true;
   player.seekTo(lessonStartSeconds(), true);
   player.playVideo();
 });
