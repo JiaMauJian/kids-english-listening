@@ -297,6 +297,39 @@ const LESSONS = [
     speakingSentences: ["I really like warm beverages.", "I love working at cafes."],
   },
   {
+    videoId: "M25ieTfZ1eI",
+    series: "Listening Time",
+    title: "A2 English Listening Practice - Fears",
+    quizQuestions: [
+      {
+        question: "How many of the people the speaker knows does he guess are afraid of heights?",
+        options: ["Almost nobody", "Almost half", "Everyone"],
+        answer: 1,
+      },
+      {
+        question: "When does the speaker sometimes feel a little afraid of flying?",
+        options: ["During takeoff and landing", "When the plane is very high", "When he eats on the plane"],
+        answer: 0,
+      },
+      {
+        question: "What scares the speaker more than spiders?",
+        options: ["Snakes", "Bees", "Cockroaches"],
+        answer: 2,
+      },
+      {
+        question: "When does the speaker say he might get a little nervous about the dark?",
+        options: ["When he is at home in bed", "When he is alone in a dark forest", "When he watches a movie"],
+        answer: 1,
+      },
+      {
+        question: "Why does the speaker think people might be afraid of clowns?",
+        options: ["They look really creepy", "They are too loud", "They play tricks on people"],
+        answer: 0,
+      },
+    ],
+    speakingSentences: ["I am afraid of big spiders.", "My greatest fear is the dark."],
+  },
+  {
     videoId: "4eNlLwkwhaY",
     series: "Miss Honey",
     title: "Real Life English Vlog - Cooking Chicken Soup (Part 1)",
