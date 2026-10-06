@@ -363,6 +363,39 @@ const LESSONS = [
     speakingSentences: ["I love taking road trips.", "I need a reliable car."],
   },
   {
+    videoId: "vkOhudt_Ye8",
+    series: "Listening Time",
+    title: "A2 English Listening Practice - Museums",
+    quizQuestions: [
+      {
+        question: "How did the speaker get into the Prado museum in Madrid?",
+        options: ["He paid for an expensive ticket", "He got in for free in the late afternoon", "A friend gave him a ticket"],
+        answer: 1,
+      },
+      {
+        question: "What paintings at the Prado did the speaker spend a lot of time staring at?",
+        options: ["Big paintings of war and battle scenes", "Paintings of flowers", "Paintings of animals"],
+        answer: 0,
+      },
+      {
+        question: "Why is the Gallery of the Academy of Florence famous?",
+        options: ["The Sistine Chapel", "Its pyramid-shaped entrance", "Michelangelo's Statue of David"],
+        answer: 2,
+      },
+      {
+        question: "What is the entrance of the Louvre in Paris famous for?",
+        options: ["Its pyramid shape", "Its big garden", "Its golden doors"],
+        answer: 0,
+      },
+      {
+        question: "What is the largest museum in America?",
+        options: ["The Uffizi Gallery", "The Metropolitan Museum of Art", "The Prado"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I enjoy visiting museums.", "My favorite museum has a lot of art."],
+  },
+  {
     videoId: "Hi8Z1aQT3Lw",
     series: "Listening Time",
     title: "A2 English Listening Practice - Coffee",
