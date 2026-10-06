@@ -429,6 +429,39 @@ const LESSONS = [
     speakingSentences: ["I love watching the fireworks.", "I like eating hamburgers and hotdogs."],
   },
   {
+    videoId: "irGnL5nzR0Y",
+    series: "Listening Time",
+    title: "A2 English Listening Practice - Dentist",
+    quizQuestions: [
+      {
+        question: "What does the dentist do during a normal checkup?",
+        options: ["Cleans your teeth and checks for problems", "Gives you candy", "Takes out all your teeth"],
+        answer: 0,
+      },
+      {
+        question: "What are your gums?",
+        options: ["The white parts of your teeth", "The pink parts above and below your teeth", "The back of your tongue"],
+        answer: 1,
+      },
+      {
+        question: "Why do children often get a lot of cavities?",
+        options: ["They drink too much water", "They brush their teeth too much", "They eat a lot of sugar and don't clean their teeth well"],
+        answer: 2,
+      },
+      {
+        question: "How often does the speaker brush his teeth now?",
+        options: ["Once a week", "Twice a day", "Only in the morning"],
+        answer: 1,
+      },
+      {
+        question: "How old was the speaker when he got braces?",
+        options: ["10", "15", "21"],
+        answer: 2,
+      },
+    ],
+    speakingSentences: ["I brush my teeth twice a day.", "I go to the dentist for a checkup."],
+  },
+  {
     videoId: "Hi8Z1aQT3Lw",
     series: "Listening Time",
     title: "A2 English Listening Practice - Coffee",
