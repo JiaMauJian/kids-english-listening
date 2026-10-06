@@ -264,6 +264,72 @@ const LESSONS = [
     speakingSentences: ["I am afraid of big spiders.", "My greatest fear is the dark."],
   },
   {
+    videoId: "uvkY-UGeCmk",
+    series: "Listening Time",
+    title: "A2 English Listening Practice - Cars and Driving",
+    quizQuestions: [
+      {
+        question: "Why does the speaker like SUVs?",
+        options: ["They are cheaper than sedans", "They feel safer than sedans", "They are faster than sedans"],
+        answer: 1,
+      },
+      {
+        question: "What kind of car do many American moms drive?",
+        options: ["Minivans with seven seats", "Small sports cars", "Pickup trucks"],
+        answer: 0,
+      },
+      {
+        question: "What are many foreigners surprised by in the US?",
+        options: ["How small the cars are", "How cheap gas is", "How big the trucks are"],
+        answer: 2,
+      },
+      {
+        question: "When do people in most places in the US use their car horns?",
+        options: ["All the time", "Only in emergency situations", "Only at night"],
+        answer: 1,
+      },
+      {
+        question: "What was the speaker's only ticket for?",
+        options: ["Running a red light", "Not stopping at a stop sign", "Speeding"],
+        answer: 2,
+      },
+    ],
+    speakingSentences: ["I like riding in the car.", "We should follow the rules of the road."],
+  },
+  {
+    videoId: "r1ZZn-vgwVc",
+    series: "Listening Time",
+    title: "A2 English Listening Practice - Elementary School",
+    quizQuestions: [
+      {
+        question: "How old are most kids in the US when they start first grade?",
+        options: ["Five years old", "Six years old", "Seven years old"],
+        answer: 1,
+      },
+      {
+        question: "How many teachers do students usually have each year from first to fifth grade?",
+        options: ["One teacher", "Three teachers", "Six or seven teachers"],
+        answer: 0,
+      },
+      {
+        question: "How many teachers did the speaker have in sixth grade?",
+        options: ["One", "Two", "Three"],
+        answer: 2,
+      },
+      {
+        question: "What does the speaker say is the funnest part of elementary school?",
+        options: ["Playing outside during recess and lunch break", "Taking tests", "Eating the school lunch"],
+        answer: 0,
+      },
+      {
+        question: "What does the speaker say about the school lunch food?",
+        options: ["It was always delicious", "Most of it wasn't that great", "It was too spicy"],
+        answer: 1,
+      },
+    ],
+    speakingSentences: ["I like playing on the playground.", "My teacher is very nice."],
+  },
+  {
     videoId: "wUKvSlx95xc",
     series: "Listening Time",
     title: "A2 English Listening Practice - Road Trips",
