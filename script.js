@@ -727,6 +727,58 @@ const LESSONS = [
   },
 ];
 
+// 大家說英語 teaching DVD episodes - MP4 files on Google Drive rather than
+// YouTube, so they can't go through the hidden YouTube audio player. Each
+// one plays in a visible Drive preview iframe instead (see startDriveLesson)
+// and has no quiz/chunks; finishing is confirmed by tapping "看完了".
+const DAJIA_EPISODES = [
+  ["0901", "1BYxFoOBkSBEOv34zN3-ZQJQvv1xye36b"],
+  ["0902", "1CRxOWlamLESmzVArb9S87dcvjpJoSEk6"],
+  ["0903", "1jyflg6vpWnvLGtnJK6otTBQZTs8Oudiw"],
+  ["0904", "10gVAnnqC5zROKQmW7C2A-0T9f6Qv-mQl"],
+  ["0905", "1Qv6qFu_3JW5jqdEw9V-9Fb9OdMQSbpTN"],
+  ["0907", "1YfINgJJ-vlMbrOIXdEjPAP0MN9G2UF8S"],
+  ["0908", "1gYdJXBhbUMSDr49tsFMZ_YXMJ3SnQ5os"],
+  ["0909", "1nEPcxujfGmwdTUauzTk0ERxohU7TjBhg"],
+  ["0910", "1bjkOyY9l4FRkx-819l-0ejp48aY3gI8J"],
+  ["0911", "1s6QAPqGzV4MWDU2ztmFS5KakcHJAQ0Lp"],
+  ["0912", "1QPzn0VlAJxEO5IWxuoW6FnCBCDKGQh-7"],
+  ["0914", "1tRcMVJsglLsV9FFPX-R15UtehY62TQ6U"],
+  ["0915", "17jtwFKLKZKpy5aTFWtYYl2fkTE38rAGJ"],
+  ["0916", "1Th7iUwafQ2VtCymZ1kfQSXFyGhBPuCzg"],
+  ["0917", "1d3TPxKmwdrmACTaCUiMx1mbL7SEKSuKV"],
+  ["0918", "1CxTDXHxZCpcBgxR_LB3q__FjTaLsAtim"],
+  ["0919", "1jZ73I9cpiFv7qAGAnx3gk8RlN8F6b_S6"],
+  ["0921", "1HskEokdwrbI2ywkF7VqxBUMeQd_1R3sE"],
+  ["0922", "1VV7Y8kzBdElw_5RGlgx1NmmoG_nVEmHK"],
+  ["0923", "1TFREmRv9lGZY5Yrc2CyXkKFwJVW7nl45"],
+  ["0924", "1H8n5aOyfG7KyrEP5C-pCJUqi8IDxF4rz"],
+  ["0925", "1m5-EJdr5kRPdKTN6Sa5orMTwBYrSR9o4"],
+  ["0926", "1AxCH8_sujjzW1iQe3BqTXGoGcA1xNf9P"],
+  ["0928", "153AR1zsrst76ERVjq2MgzAxCUqmjbX51"],
+  ["0929", "1A2U9zQUgQn_E7AAk9TNk8bIpTgmMcBO9"],
+  ["0930", "15nMHRqb-_DKIEOdqU0yfwma3rw_qK1tq"],
+];
+
+DAJIA_EPISODES.forEach(([mmdd, driveId]) => {
+  LESSONS.push({
+    driveId,
+    series: "大家說英文",
+    title: `大家說英語 ${Number(mmdd.slice(0, 2))}/${mmdd.slice(2)}`,
+    quizQuestions: [],
+  });
+});
+
+function isDriveLesson(lesson) {
+  return !!lesson.driveId;
+}
+
+// Key a lesson's spaced-repetition entry is stored under - the YouTube
+// videoId for normal lessons, the Drive file id for Drive episodes.
+function lessonKey(lesson) {
+  return lesson.videoId || lesson.driveId;
+}
+
 // --- Spaced repetition (Ebbinghaus forgetting curve) settings ---
 // One lesson = one schedule: finishing the audio the first time (the quiz
 // isn't required) stamps today's date into checkpoint "1", then the lesson
@@ -791,6 +843,13 @@ const reviewBannerHint = document.getElementById("reviewBannerHint");
 const seriesTabsEl = document.getElementById("seriesTabs");
 const reviewTableBody = document.getElementById("reviewTableBody");
 const homeBtn = document.getElementById("homeBtn");
+
+const driveCol = document.getElementById("driveCol");
+const driveTitleEl = document.getElementById("driveTitle");
+const driveFrame = document.getElementById("driveFrame");
+const driveOpenLink = document.getElementById("driveOpenLink");
+const driveDoneBtn = document.getElementById("driveDoneBtn");
+const driveHomeBtn = document.getElementById("driveHomeBtn");
 
 const chunksSection = document.getElementById("chunksSection");
 const chunksProgress = document.getElementById("chunksProgress");
@@ -895,7 +954,7 @@ function initYouTubePlayer() {
   player = new YT.Player("yt-player", {
     height: "1",
     width: "1",
-    videoId: currentLesson().videoId,
+    videoId: LESSONS.find((lesson) => lesson.videoId).videoId,
     playerVars: {
       controls: 0,
       disablekb: 1,
@@ -1029,7 +1088,7 @@ function getTodaysPickIndex(store) {
   let staleBest = null;
 
   LESSONS.forEach((lesson, index) => {
-    const entry = getLessonEntry(store, lesson.videoId);
+    const entry = getLessonEntry(store, lessonKey(lesson));
     const nextIdx = entry.reviews.findIndex((v) => !v);
 
     if (nextIdx === 0) {
@@ -1074,7 +1133,7 @@ function recordLessonCompletion() {
   markCompletedToday();
 
   const store = loadLessonSrsStore();
-  const entry = getLessonEntry(store, currentLesson().videoId);
+  const entry = getLessonEntry(store, lessonKey(currentLesson()));
   const now = Date.now();
 
   const lastRecordedAt = getLastRecordedAt(entry);
@@ -1106,7 +1165,7 @@ function fromDateInputValue(value) {
 // later checkpoint, since those were scheduled off of it.
 function setLessonCheckpointManually(lessonIndex, checkpointIdx, value) {
   const store = loadLessonSrsStore();
-  const entry = getLessonEntry(store, LESSONS[lessonIndex].videoId);
+  const entry = getLessonEntry(store, lessonKey(LESSONS[lessonIndex]));
 
   if (!value) {
     const hasLater = entry.reviews.slice(checkpointIdx + 1).some(Boolean);
@@ -1138,6 +1197,7 @@ function setLessonCheckpointManually(lessonIndex, checkpointIdx, value) {
 // Switches the player to a different lesson's video and starts playing it -
 // used both for a first listen and for a later review, from the table.
 function startLesson(index) {
+  if (isDriveLesson(LESSONS[index])) return startDriveLesson(index);
   if (!player) {
     statusEl.textContent = "影片還沒準備好，請再等一下下，或確認裝置可以連上 YouTube 網站。";
     return;
@@ -1156,6 +1216,39 @@ function startLesson(index) {
     player.loadVideoById(videoLoadOptions(LESSONS[index]));
   }
 }
+
+// Drive episodes play in a visible Drive preview iframe (Drive's own player
+// controls) instead of the hidden YouTube player, so the custom player
+// column stays hidden. The iframe can't report when the video ends, so the
+// kid taps "看完了" to stamp the review date.
+function startDriveLesson(index) {
+  currentLessonIndex = index;
+  if (player && player.pauseVideo) player.pauseVideo();
+  const lesson = LESSONS[index];
+  reviewBanner.hidden = true;
+  quizSection.hidden = true;
+  chunksSection.hidden = true;
+  gameSection.hidden = true;
+  setHomeMode(false);
+  playerColEl.hidden = true;
+  appColumnsEl.classList.add("drive-mode");
+  driveTitleEl.textContent = `🎬 ${lesson.title}`;
+  driveFrame.src = `https://drive.google.com/file/d/${lesson.driveId}/preview`;
+  driveOpenLink.href = `https://drive.google.com/file/d/${lesson.driveId}/view`;
+  driveCol.hidden = false;
+}
+
+function closeDriveLesson() {
+  driveCol.hidden = true;
+  driveFrame.src = "about:blank";
+  appColumnsEl.classList.remove("drive-mode");
+}
+
+driveDoneBtn.addEventListener("click", () => {
+  recordLessonCompletion();
+  goHome();
+});
+driveHomeBtn.addEventListener("click", goHome);
 
 // Jumps straight to a lesson's quiz from the review table, skipping the
 // video - lets a kid who already knows a lesson retest without re-listening.
@@ -1210,7 +1303,7 @@ function renderReviewBanner() {
   LESSONS.forEach((lesson, index) => {
     if (lesson.series !== currentSeriesFilter) return;
 
-    const entry = getLessonEntry(store, lesson.videoId);
+    const entry = getLessonEntry(store, lessonKey(lesson));
     const isPick = !completedToday && index === pickIndex;
     const row = document.createElement("tr");
     row.className = isPick ? "review-row-pick" : "";
@@ -1235,15 +1328,20 @@ function renderReviewBanner() {
 
     const youtubeLink = document.createElement("a");
     youtubeLink.className = "review-lesson-btn review-youtube-link";
-    youtubeLink.textContent = "▶️ YouTube";
-    youtubeLink.href = lesson.startSeconds
-      ? `https://www.youtube.com/watch?v=${lesson.videoId}&t=${lesson.startSeconds}s`
-      : `https://www.youtube.com/watch?v=${lesson.videoId}`;
+    if (isDriveLesson(lesson)) {
+      youtubeLink.textContent = "📁 雲端硬碟";
+      youtubeLink.href = `https://drive.google.com/file/d/${lesson.driveId}/view`;
+    } else {
+      youtubeLink.textContent = "▶️ YouTube";
+      youtubeLink.href = lesson.startSeconds
+        ? `https://www.youtube.com/watch?v=${lesson.videoId}&t=${lesson.startSeconds}s`
+        : `https://www.youtube.com/watch?v=${lesson.videoId}`;
+    }
     youtubeLink.target = "_blank";
     youtubeLink.rel = "noopener noreferrer";
 
     actionsRow.appendChild(actionBtn);
-    actionsRow.appendChild(quizBtn);
+    if (lesson.quizQuestions.length) actionsRow.appendChild(quizBtn);
     actionsRow.appendChild(youtubeLink);
     titleCell.appendChild(titleEl);
     titleCell.appendChild(actionsRow);
@@ -1397,6 +1495,7 @@ quizReplayBtn.addEventListener("click", () => {
 function goHome() {
   if (player && player.pauseVideo) player.pauseVideo();
   stopSpeaking();
+  closeDriveLesson();
   quizSection.hidden = true;
   chunksSection.hidden = true;
   gameSection.hidden = true;
